@@ -17,7 +17,7 @@ public class AddSellerModel {
   public void saveSellerInDataBase() throws ApplicationException {
     SellerDao sellerDao = new SellerDao();
     Seller seller = SellerConverter.convertToSeller(getSellerFx());
-    sellerDao.createOrUpdate(seller);
+    sellerDao.create(seller);
   }
 
   public SellerFx getSellerFx() {

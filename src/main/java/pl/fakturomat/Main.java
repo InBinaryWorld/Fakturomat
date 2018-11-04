@@ -17,6 +17,7 @@ public class Main extends Application {
     primaryStage.setMinWidth(primaryStage.getWidth());
     primaryStage.setMinHeight(180);
     primaryStage.setTitle("Fakturomat");
+    primaryStage.setResizable(false);
     primaryStage.show();
 
     DbManager.initDatabase();

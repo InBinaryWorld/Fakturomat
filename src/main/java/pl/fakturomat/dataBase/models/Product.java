@@ -6,19 +6,19 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "PRODUCTS")
 public class Product implements BaseModel {
 
-  @DatabaseField(columnName = "PRODUCT_ID", generatedId = true)
+  @DatabaseField(columnName = "PRODUCT_ID", generatedId = true, canBeNull = false)
   private int productId;
 
-  @DatabaseField(columnName = "NAME")
+  @DatabaseField(columnName = "NAME", canBeNull = false)
   private String name;
 
-  @DatabaseField(columnName = "UNIT_OF_MEASURE")
+  @DatabaseField(columnName = "UNIT_OF_MEASURE", canBeNull = false)
   private String measure;
 
-  @DatabaseField(columnName = "PRICE")
+  @DatabaseField(columnName = "PRICE", canBeNull = false)
   private double price;
 
-  @DatabaseField(columnName = "TAX")
+  @DatabaseField(columnName = "TAX", canBeNull = false)
   private double tax;
 
   public Product() {

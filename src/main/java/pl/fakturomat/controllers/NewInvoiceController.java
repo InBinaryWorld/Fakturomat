@@ -13,6 +13,7 @@ import pl.fakturomat.dataBase.modelsFx.SellerFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.DialogTools;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class NewInvoiceController {
@@ -60,6 +61,7 @@ public class NewInvoiceController {
     }
     initControls();
     initBindings();
+    totalAmountLabel.setText("0");
   }
 
   private void initControls() {
@@ -90,12 +92,26 @@ public class NewInvoiceController {
 
   @FXML
   void acceptInvoiceAction() {
+    try {
+      newInvoiceModel.saveInDatabase();
+    } catch (ApplicationException | SQLException e) {
+      DialogTools.errorDialog(e.getMessage());
+    }
 
+    newInvoiceModel = new NewInvoiceModel();
+    initialize();
   }
 
   @FXML
   void addProductAction() {
     DialogTools.addOrderDialog(newInvoiceModel);
+
+    double count =0;
+    for (OrderFx orderFx: newInvoiceModel.getOrderFxList()) {
+      count +=orderFx.getAmount();
+    };
+    totalAmountLabel.setText(count+"");
+
 
   }
 

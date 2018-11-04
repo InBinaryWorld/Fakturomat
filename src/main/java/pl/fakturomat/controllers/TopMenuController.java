@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 public class TopMenuController {
 
   private static final String NEW_INVOICE_FXML = "/fxml/NewInvoice.fxml";
-  private static final String SHOW_INVOICE_FXML = "/fxml/ShowInvoice.fxml";
+  private static final String SHOW_INVOICE_FXML = "/fxml/Invoices.fxml";
   private static final String ADD_CLIENTS_FXML = "/fxml/Clients.fxml";
   private static final String ADD_SELLER_FXML = "/fxml/Sellers.fxml";
   private static final String PRODUCTS_FXML = "/fxml/Products.fxml";

@@ -1,12 +1,10 @@
 package pl.fakturomat.tools;
 
-import jdk.jfr.DataAmount;
 import pl.fakturomat.dataBase.DbManager;
 import pl.fakturomat.dataBase.dao.*;
 import pl.fakturomat.dataBase.models.*;
 import pl.fakturomat.tools.converters.DateConventers;
 
-import javax.xml.crypto.Data;
 import java.time.LocalDate;
 
 public abstract class FillDatabase {
@@ -71,31 +69,31 @@ public abstract class FillDatabase {
 
     ClientDao clientDao =new ClientDao();
     try {
-      clientDao.createOrUpdate(client1);
-      clientDao.createOrUpdate(client2);
+      clientDao.create(client1);
+      clientDao.create(client2);
     } catch (ApplicationException e) {
       e.printStackTrace();
     }
 
     SellerDao sellerDao = new SellerDao();
     try {
-      sellerDao.createOrUpdate(seller1);
-      sellerDao.createOrUpdate(seller2);
+      sellerDao.create(seller1);
+      sellerDao.create(seller2);
     } catch (ApplicationException e) {
       e.printStackTrace();
     }
 
     ProductDao productDao = new ProductDao();
     try {
-      productDao.createOrUpdate(product1);
-      productDao.createOrUpdate(product2);
+      productDao.create(product1);
+      productDao.create(product2);
     } catch (ApplicationException e) {
       e.printStackTrace();
     }
 
     InvoiceDao invoiceDao = new InvoiceDao();
     try {
-      invoiceDao.createOrUpdate(invoice1);
+      invoiceDao.create(invoice1);
     } catch (ApplicationException e) {
       e.printStackTrace();
     }
@@ -104,7 +102,7 @@ public abstract class FillDatabase {
 
     OrderDao orderDao = new OrderDao();
     try {
-      orderDao.createOrUpdate(order1);
+      orderDao.create(order1);
     } catch (ApplicationException e) {
       e.printStackTrace();
     }

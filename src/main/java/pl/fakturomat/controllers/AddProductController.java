@@ -22,7 +22,9 @@ import javafx.util.converter.NumberStringConverter;
 import pl.fakturomat.dataBase.modelManagers.AddProductModel;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.DialogTools;
+import pl.fakturomat.tools.Listeners;
 
+import java.util.List;
 import java.util.function.BooleanSupplier;
 
 public class AddProductController {
@@ -71,20 +73,9 @@ public class AddProductController {
     StringConverter<Number> converter = new NumberStringConverter();
     Bindings.bindBidirectional(taxTextField.textProperty(),addProductModel.getProductFx().taxProperty(), converter);
     Bindings.bindBidirectional(priceTextField.textProperty(),addProductModel.getProductFx().priceProperty(),converter);
-    listener(flag1, taxTextField);
-    listener(flag2, priceTextField);
+    Listeners.listener(flag1, taxTextField);
+    Listeners.listener(flag2, priceTextField);
   }
 
-  private void listener(BooleanProperty flag, TextField textField) {
-    textField.textProperty().addListener((observable, oldValue, newValue) -> {
-      if(!newValue.equals("")) {
-        try {
-          Double.parseDouble(newValue);
-          flag.setValue(false);
-        } catch (Exception e) {
-          flag.setValue(true);
-        }
-      }
-    });
-  }
+
 }

@@ -16,7 +16,7 @@ public class AddClientModel {
   public void saveClientInDataBase() throws ApplicationException {
     ClientDao clientDao = new ClientDao();
     Client client = ClientConverter.convertToClient(getClientFx());
-    clientDao.createOrUpdate(client);
+    clientDao.create(client);
   }
 
   public ClientFx getClientFx() {

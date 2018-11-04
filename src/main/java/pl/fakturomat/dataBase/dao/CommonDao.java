@@ -22,7 +22,7 @@ public abstract class CommonDao<T extends BaseModel> {
     this.cls = cls;
   }
 
-  protected <I> Dao<T, I> getDao() throws ApplicationException {
+  public <I> Dao<T, I> getDao() throws ApplicationException {
     try {
       return DaoManager.createDao(connectionSource, cls);
     } catch (SQLException e) {
@@ -33,10 +33,10 @@ public abstract class CommonDao<T extends BaseModel> {
     }
   }
 
-  public <I> void createOrUpdate(T baseModel) throws ApplicationException {
+  public <I> void create(T baseModel) throws ApplicationException {
     try {
       Dao<T, I> dao = getDao();
-      dao.createOrUpdate(baseModel);
+      dao.create(baseModel);
     } catch (SQLException e) {
       LOGGER.warn(e.getCause().getMessage());
       throw new ApplicationException("Błąd - Nie powiodła się próba aktualizacji rejestru.");

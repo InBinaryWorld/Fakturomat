@@ -17,7 +17,7 @@ public class AddProductModel {
   public void saveProductInDataBase() throws ApplicationException {
     ProductDao productDao =  new ProductDao();
     Product product = ProductConverter.convertToProduct(getProductFx());
-    productDao.createOrUpdate(product);
+    productDao.create(product);
   }
 
   public ProductFx getProductFx() {

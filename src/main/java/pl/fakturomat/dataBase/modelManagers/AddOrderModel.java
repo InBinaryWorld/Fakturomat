@@ -16,13 +16,8 @@ import java.util.List;
 public class AddOrderModel {
   private ObjectProperty<OrderFx> orderFx = new SimpleObjectProperty<>(new OrderFx());
   private ObservableList<ProductFx> productFxList = FXCollections.observableArrayList();
-  private NewInvoiceModel newInvoiceModel;
 
   public AddOrderModel() {
-  }
-
-  public void saveOrderInList() throws ApplicationException {
-    newInvoiceModel.getOrderFxList().add(getOrderFx());
   }
 
   public void init() throws ApplicationException {
@@ -40,13 +35,6 @@ public class AddOrderModel {
     this.productFxList = productFxList;
   }
 
-  public NewInvoiceModel getNewInvoiceModel() {
-    return newInvoiceModel;
-  }
-
-  public void setNewInvoiceModel(NewInvoiceModel newInvoiceModel) {
-    this.newInvoiceModel = newInvoiceModel;
-  }
 
   public OrderFx getOrderFx() {
     return orderFx.get();

@@ -6,22 +6,22 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "SELLER")
 public class Seller implements BaseModel {
 
-  @DatabaseField(columnName = "SELLER_ID", generatedId = true)
+  @DatabaseField(columnName = "SELLER_ID", generatedId = true, canBeNull = false)
   private int sellerID;
 
-  @DatabaseField(columnName = "NAME", unique = true)
+  @DatabaseField(columnName = "NAME", unique = true, canBeNull = false)
   private String name;
 
-  @DatabaseField(columnName = "NIP", unique = true)
+  @DatabaseField(columnName = "NIP", unique = true, canBeNull = false)
   private String nip;
 
-  @DatabaseField(columnName = "POST_CODE")
+  @DatabaseField(columnName = "POST_CODE", canBeNull = false)
   private String postCode;
 
-  @DatabaseField(columnName = "CITY")
+  @DatabaseField(columnName = "CITY", canBeNull = false)
   private String city;
 
-  @DatabaseField(columnName = "ADDRESS")
+  @DatabaseField(columnName = "ADDRESS", canBeNull = false)
   private String address;
 
   @DatabaseField(columnName = "TELEPHONE_NR")

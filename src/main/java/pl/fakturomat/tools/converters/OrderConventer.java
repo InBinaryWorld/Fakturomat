@@ -12,10 +12,11 @@ public abstract class OrderConventer {
     orderFx.setTax(order.getTax());
     orderFx.setInvoiceFx(InvoiceConventer.convertToInvoiceFx(order.getInvoice()));
     orderFx.setQuantity(order.getQuantity());
+    //orderFx.setAmount(order.getAmount());
     return orderFx;
   }
 
-  public static Order convertToProduct(OrderFx orderFx){
+  public static Order convertToOrder(OrderFx orderFx){
     Order order = new Order();
     order.setName(orderFx.getName());
     order.setMeasure(orderFx.getMeasure());
@@ -23,6 +24,7 @@ public abstract class OrderConventer {
     order.setTax(orderFx.getTax());
     order.setInvoice(InvoiceConventer.convertToInvoice(orderFx.getInvoiceFx()));
     order.setQuantity(orderFx.getQuantity());
+    order.setAmount(orderFx.getAmount());
     return order;
   }
 }

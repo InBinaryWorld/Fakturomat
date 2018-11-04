@@ -1,5 +1,6 @@
 package pl.fakturomat.dataBase.modelsFx;
 
+import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.*;
 
 public class OrderFx {
@@ -12,7 +13,22 @@ public class OrderFx {
   private DoubleProperty amount = new SimpleDoubleProperty();
 
   public OrderFx() {
-    amount.bind(price.multiply(quantity).add(price.multiply(quantity).multiply(tax).divide(100)));
+    DoubleBinding doubleBinding =price.multiply(quantity).add(price.multiply(quantity).multiply(tax).divide(100));
+    //amount.bind(price.multiply(quantity).add(price.multiply(quantity).multiply(tax).divide(100)));
+
+    DoubleBinding db = new DoubleBinding() {
+
+      {
+        super.bind(doubleBinding);
+      }
+
+      @Override
+      protected double computeValue() {
+        return ((double)((int)(doubleBinding.get()*100)))/100;
+      }
+    };
+    amount.bind(db);
+
   }
 
   public InvoiceFx getInvoiceFx() {
