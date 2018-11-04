@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.fakturomat.controllers.TopMenuController">
+    <children>
+        <ToggleButton minHeight="80.0" mnemonicParsing="false" onAction="#NewInvoiceAction" prefWidth="190.0" text="Wystaw Fakturę">
+            <toggleGroup>
+                <ToggleGroup fx:id="toggleGroup" />
+            </toggleGroup></ToggleButton>
+        <ToggleButton minHeight="80.0" mnemonicParsing="false" onAction="#ShowInvoiceAction" prefWidth="190.0" text="Przeglądaj Faktury" toggleGroup="$toggleGroup" />
+        <ToggleButton lineSpacing="4.0" minHeight="80.0" mnemonicParsing="false" onAction="#productsAction" prefWidth="190.0" text="Produkty" toggleGroup="$toggleGroup" />
+        <ToggleButton graphicTextGap="0.0" lineSpacing="4.0" minHeight="80.0" mnemonicParsing="false" onAction="#addClientAction" prefWidth="190.0" text="Dodaj Klienta" toggleGroup="$toggleGroup" />
+        <ToggleButton minHeight="80.0" mnemonicParsing="false" onAction="#addSellerAction" prefWidth="190.0" text="Dodaj Sprzedawcę" toggleGroup="$toggleGroup" />
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</HBox>
