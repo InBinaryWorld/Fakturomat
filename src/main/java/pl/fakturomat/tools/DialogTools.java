@@ -1,17 +1,24 @@
 package pl.fakturomat.tools;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import pl.fakturomat.controllers.AddOrderController;
+import pl.fakturomat.dataBase.modelManagers.NewInvoiceModel;
+import pl.fakturomat.dataBase.models.Order;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class DialogTools {
 
   public static final String ADD_CLIENT_FXML = "/fxml/AddClient.fxml";
   public static final String ADD_SELLER_FXML = "/fxml/AddSeller.fxml";
+  public static final String ADD_PRODUCT_FXML = "/fxml/AddProduct.fxml";
+  public static final String ADD_ORDER_FXML = "/fxml/AddOrder.fxml";
 
   public static void dialogAboutApplication() {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -52,7 +59,7 @@ public class DialogTools {
   }
 
   public static void addProductDialog() {
-    addDialog("/fxml/AddProduct.fxml", "Dodaj produkt");
+    addDialog(ADD_PRODUCT_FXML, "Dodaj produkt");
   }
 
   private static void addDialog(String s, String s2) {
@@ -64,5 +71,27 @@ public class DialogTools {
     stage.initModality(Modality.APPLICATION_MODAL);
     stage.setTitle(s2);
     stage.showAndWait();
+  }
+
+  public static void addOrderDialog(NewInvoiceModel newInvoiceModel) {
+    FXMLLoader loader = new FXMLLoader(FxmlTools.class.getResource(ADD_ORDER_FXML));
+    Pane pane ;
+    try {
+      pane =loader.load();
+      AddOrderController orderController = loader.getController();
+      orderController.passNewInvoiceModel(newInvoiceModel);
+      Scene scene = new Scene(pane);
+      Stage stage = new Stage();
+      stage.setScene(scene);
+      stage.setResizable(false);
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setTitle("Dodaj Produkt");
+      stage.showAndWait();
+    } catch (IOException e) {
+      errorDialog(e.getMessage());
+    }
+
+
+
   }
 }

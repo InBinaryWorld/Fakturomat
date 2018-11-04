@@ -95,6 +95,7 @@ public class NewInvoiceController {
 
   @FXML
   void addProductAction() {
+    DialogTools.addOrderDialog(newInvoiceModel);
 
   }
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="BOTTOM_CENTER" prefHeight="399.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.fakturomat.controllers.AddOrderController">
+    <children>
+        <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../icons/shopping-bag.png" />
+            </image>
+        </ImageView>
+        <GridPane prefHeight="170.0" prefWidth="287.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="169.39996337890625" minWidth="10.0" prefWidth="98.2000244140625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.9999633789062" minWidth="10.0" prefWidth="151.7999755859375" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Produkt :">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Ilość :" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addAction" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="quantityTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </TextField>
+            <ComboBox fx:id="productComboBox" prefHeight="26.0" prefWidth="158.0" GridPane.columnIndex="1" />
+            </children>
+            <VBox.margin>
+                <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+            </VBox.margin>
+        </GridPane>
+        <Label text="Icon made by Freepik from www.flaticon.com ">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+    </children>
+</VBox>

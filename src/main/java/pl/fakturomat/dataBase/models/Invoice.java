@@ -48,7 +48,7 @@ public class Invoice implements BaseModel {
     this.client = client;
   }
 
-  public Date getData() {
+  public Date getDate() {
     return data;
   }
 
