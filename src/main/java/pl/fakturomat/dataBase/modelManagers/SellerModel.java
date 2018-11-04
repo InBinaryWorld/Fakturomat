@@ -15,9 +15,9 @@ public class SellerModel {
   
   public void init() throws ApplicationException {
     SellerDao sellerDao = new SellerDao();
-    List<Seller> clientList = sellerDao.queryForAll();
+    List<Seller> sellerList = sellerDao.queryForAll();
     sellerFxList.clear();
-    clientList.forEach(seller -> sellerFxList.add(SellerConverter.convertToSellerFx(seller)));
+    sellerList.forEach(seller -> sellerFxList.add(SellerConverter.convertToSellerFx(seller)));
   }
 
   public static ObservableList<SellerFx> getSellerFxList() {

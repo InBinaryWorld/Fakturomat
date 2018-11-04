@@ -9,6 +9,7 @@ public class FxmlTools {
     try {
       return loader.load();
     } catch (Exception e) {
+      e.printStackTrace();
       DialogTools.errorDialog(e.getMessage());
     }
     return null;

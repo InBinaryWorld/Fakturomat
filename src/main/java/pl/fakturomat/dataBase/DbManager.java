@@ -5,6 +5,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import pl.fakturomat.dataBase.models.*;
 import pl.fakturomat.tools.DialogTools;
+import pl.fakturomat.tools.FillDatabase;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class DbManager {
     dropTables();
     createIfNotExistTables();
     closeConnectionSource();
-    //FillDatabase.fillDatabase();
+    FillDatabase.fillDatabase();
   }
 
   public static ConnectionSource getConnectionSource(){
