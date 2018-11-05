@@ -35,14 +35,14 @@ public class AddProductController {
   private AddProductModel addProductModel = new AddProductModel();
 
   @FXML
-  void addAction() {
+  private void addAction() {
     try {
       addProductModel.saveProductInDataBase();
     } catch (
             ApplicationException ee1) {
       DialogTools.errorDialog(ee1.getMessage());
     }
-    Stage stage = (Stage) addButton.getScene().getWindow();
+    final Stage stage = (Stage) addButton.getScene().getWindow();
     stage.close();
   }
 
@@ -51,23 +51,24 @@ public class AddProductController {
   }
 
   private void initBindings() {
-    BooleanProperty flag1 = new SimpleBooleanProperty(false);
-    BooleanProperty flag2 = new SimpleBooleanProperty(false);
-    addButton.disableProperty().bind(nameTxtFld.textProperty().isEmpty().or(
-            measureTxtFld.textProperty().isEmpty()).or(
-            priceTxtFld.textProperty().isEmpty()).or(
-                    taxTxtFld.textProperty().isEmpty()).or(flag1).or(flag2));
+    final BooleanProperty flag1 = new SimpleBooleanProperty(false);
+    final BooleanProperty flag2 = new SimpleBooleanProperty(false);
+    addButton.disableProperty().bind(nameTxtFld.textProperty().isEmpty()
+            .or(measureTxtFld.textProperty().isEmpty())
+            .or(priceTxtFld.textProperty().isEmpty())
+            .or(taxTxtFld.textProperty().isEmpty()).or(flag1).or(flag2));
     addProductModel.getProductFx().measureProperty().bind(measureTxtFld.textProperty());
     addProductModel.getProductFx().nameProperty().bind(nameTxtFld.textProperty());
 
-    StringConverter<Number> converter = new NumberStringConverter();
-    DoubleProperty taxProperty = addProductModel.getProductFx().taxProperty();
+    final StringConverter<Number> converter = new NumberStringConverter();
+    final DoubleProperty taxProperty = addProductModel.getProductFx().taxProperty();
     Bindings.bindBidirectional(taxTxtFld.textProperty(), taxProperty, converter);
-    DoubleProperty priceProperty = addProductModel.getProductFx().priceProperty();
+    final DoubleProperty priceProperty = addProductModel.getProductFx().priceProperty();
     Bindings.bindBidirectional(priceTxtFld.textProperty(), priceProperty, converter);
     Listeners.listener(flag1, taxTxtFld);
     Listeners.listener(flag2, priceTxtFld);
   }
 
-
+  public AddProductController() {
+  }
 }

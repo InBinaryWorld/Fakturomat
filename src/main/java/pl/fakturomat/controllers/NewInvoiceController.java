@@ -17,40 +17,28 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class NewInvoiceController {
-
   @FXML
   private ComboBox<SellerFx> sellerComBox;
-
   @FXML
   private ComboBox<ClientFx> clientComBox;
-
   @FXML
   private TableView<OrderFx> tableView;
-
   @FXML
   private TableColumn<OrderFx, String> nameClm;
-
   @FXML
   private TableColumn<OrderFx, Double> quantityClm;
-
   @FXML
   private TableColumn<OrderFx, String> measureClm;
-
   @FXML
   private TableColumn<OrderFx, Double> priceClm;
-
   @FXML
   private TableColumn<OrderFx, Double> taxClm;
-
   @FXML
   private TableColumn<OrderFx, Double> amountClm;
-
   @FXML
   private Label totalAmountLabel;
-
   @FXML
   private Button acceptInvoiceBtn;
-
   private NewInvoiceModel newInvoiceModel = new NewInvoiceModel();
 
   /**
@@ -68,7 +56,6 @@ public class NewInvoiceController {
   }
 
   private void initControls() {
-
     sellerComBox.setItems(newInvoiceModel.getSellerFxList());
     clientComBox.setItems(newInvoiceModel.getClientFxList());
     tableView.setItems(newInvoiceModel.getOrderFxList());
@@ -81,8 +68,8 @@ public class NewInvoiceController {
   }
 
   private void initBindings() {
-    acceptInvoiceBtn.disableProperty().bind(clientComBox.valueProperty().isNull().or(
-            sellerComBox.valueProperty().isNull()));
+    acceptInvoiceBtn.disableProperty().bind(clientComBox.valueProperty().isNull()
+            .or(sellerComBox.valueProperty().isNull()));
     newInvoiceModel.getInvoiceFx().clientFxProperty().bind(clientComBox.valueProperty());
     newInvoiceModel.getInvoiceFx().sellerFxProperty().bind(sellerComBox.valueProperty());
   }
@@ -91,7 +78,7 @@ public class NewInvoiceController {
   }
 
   @FXML
-  void acceptInvoiceAction() {
+  private void acceptInvoiceAction() {
     newInvoiceModel.getInvoiceFx().setDate(LocalDate.now());
     try {
       newInvoiceModel.saveInDatabase();
@@ -104,14 +91,13 @@ public class NewInvoiceController {
   }
 
   @FXML
-  void addProductAction() {
+  private void addProductAction() {
     DialogTools.addOrderDialog(newInvoiceModel);
-
     double count = 0;
-    for (OrderFx orderFx : newInvoiceModel.getOrderFxList()) {
+    for (final OrderFx orderFx : newInvoiceModel.getOrderFxList()) {
       count += orderFx.getAmount();
     }
-    totalAmountLabel.setText(count + "");
+    totalAmountLabel.setText(String.valueOf(count));
   }
 
 }

@@ -63,7 +63,7 @@
                         </HBox>
                         <HBox spacing="5.0">
                            <children>
-                              <Label fx:id="sellerPostCodeLabel" text="Label">
+                              <Label fx:id="sPostCodeLabel" text="Label">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -78,7 +78,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </HBox>
-                        <Label fx:id="sellerAddressLabel" text="Label">
+                        <Label fx:id="sAddressLabel" text="Label">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -125,14 +125,14 @@
                         </HBox>
                         <HBox spacing="5.0">
                            <children>
-                              <Label fx:id="clientPostCodeLabel" text="Label" />
+                              <Label fx:id="cPostCodeLabel" text="Label" />
                               <Label fx:id="clientCityLabel" text="Label" />
                            </children>
                            <padding>
                               <Insets right="20.0" />
                            </padding>
                         </HBox>
-                        <Label fx:id="clientAddressLabel" text="Label">
+                        <Label fx:id="cAddressLabel" text="Label">
                            <VBox.margin>
                               <Insets right="20.0" />
                            </VBox.margin>

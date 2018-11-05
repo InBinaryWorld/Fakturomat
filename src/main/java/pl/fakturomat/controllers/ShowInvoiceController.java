@@ -22,11 +22,11 @@ public class ShowInvoiceController {
   @FXML
   private Label sellerNipLabel;
   @FXML
-  private Label sellerPostCodeLabel;
+  private Label sPostCodeLabel;
   @FXML
   private Label sellerCityLabel;
   @FXML
-  private Label sellerAddressLabel;
+  private Label sAddressLabel;
   @FXML
   private Label sellerPhoneLabel;
   @FXML
@@ -34,11 +34,11 @@ public class ShowInvoiceController {
   @FXML
   private Label clientNipLabel;
   @FXML
-  private Label clientPostCodeLabel;
+  private Label cPostCodeLabel;
   @FXML
   private Label clientCityLabel;
   @FXML
-  private Label clientAddressLabel;
+  private Label cAddressLabel;
   @FXML
   private Label clientPhoneLabel;
   @FXML
@@ -64,7 +64,7 @@ public class ShowInvoiceController {
 
   @FXML
   void okAction() {
-    Stage stage = (Stage) tableView.getScene().getWindow();
+    final Stage stage = (Stage) tableView.getScene().getWindow();
     stage.close();
   }
 
@@ -73,7 +73,7 @@ public class ShowInvoiceController {
    *
    * @param invoiceFx IncoiceFx object.
    */
-  public void passInvoiceFx(InvoiceFx invoiceFx) {
+  public void passInvoiceFx(final InvoiceFx invoiceFx) {
     try {
       showInvMod.init(invoiceFx);
     } catch (ApplicationException | SQLException ee1) {
@@ -100,16 +100,16 @@ public class ShowInvoiceController {
 
     sellerNameLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getName());
     sellerNipLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getNip());
-    sellerPostCodeLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getPostCode());
+    sPostCodeLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getPostCode());
     sellerCityLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getCity());
-    sellerAddressLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getAddress());
+    sAddressLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getAddress());
     sellerPhoneLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getPhone());
 
     clientNameLabel.setText(showInvMod.getInvoiceFx().getClientFx().getName());
     clientNipLabel.setText(showInvMod.getInvoiceFx().getClientFx().getNip());
-    clientPostCodeLabel.setText(showInvMod.getInvoiceFx().getClientFx().getPostCode());
+    cPostCodeLabel.setText(showInvMod.getInvoiceFx().getClientFx().getPostCode());
     clientCityLabel.setText(showInvMod.getInvoiceFx().getClientFx().getCity());
-    clientAddressLabel.setText(showInvMod.getInvoiceFx().getClientFx().getAddress());
+    cAddressLabel.setText(showInvMod.getInvoiceFx().getClientFx().getAddress());
     clientPhoneLabel.setText(showInvMod.getInvoiceFx().getClientFx().getPhone());
 
 

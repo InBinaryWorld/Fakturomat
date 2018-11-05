@@ -16,6 +16,7 @@ import java.util.List;
 public class AddOrderModel {
   private ObjectProperty<OrderFx> orderFx = new SimpleObjectProperty<>(new OrderFx());
   private ObservableList<ProductFx> productFxList = FXCollections.observableArrayList();
+  private NewInvoiceModel newInvoiceModel;
 
   public AddOrderModel() {
   }
@@ -29,6 +30,9 @@ public class AddOrderModel {
     List<Product> products = productDao.queryForAll();
     productFxList.clear();
     products.forEach(product -> productFxList.add(ProductConverter.convertToProductFx(product)));
+  }
+  public void addToOrderList(){
+    newInvoiceModel.getOrderFxList().add(getOrderFx());
   }
 
   public ObservableList<ProductFx> getProductFxList() {
@@ -50,5 +54,13 @@ public class AddOrderModel {
 
   public void setOrderFx(OrderFx orderFx) {
     this.orderFx.set(orderFx);
+  }
+
+  public NewInvoiceModel getNewInvoiceModel() {
+    return newInvoiceModel;
+  }
+
+  public void setNewInvoiceModel(NewInvoiceModel newInvoiceModel) {
+    this.newInvoiceModel = newInvoiceModel;
   }
 }

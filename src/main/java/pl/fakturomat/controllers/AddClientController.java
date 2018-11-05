@@ -24,16 +24,16 @@ public class AddClientController {
   @FXML
   private TextField phoneTxtFld;
 
-  private AddClientModel addClientModel = new AddClientModel();
+  private final AddClientModel addClientModel = new AddClientModel();
 
   @FXML
-  void addAction() {
+  private void addAction() {
     try {
       addClientModel.saveClientInDataBase();
     } catch (ApplicationException ee1) {
       DialogTools.errorDialog(ee1.getMessage());
     }
-    Stage stage = (Stage) addBtn.getScene().getWindow();
+    final Stage stage = (Stage) addBtn.getScene().getWindow();
     stage.close();
   }
 
@@ -41,12 +41,15 @@ public class AddClientController {
     initBindings();
   }
 
+  public AddClientController() {
+  }
+
   private void initBindings() {
-    addBtn.disableProperty().bind(nameTxtFld.textProperty().isEmpty().or(
-            nipTxtFld.textProperty().isEmpty()).or(
-                    postCodeTxtFld.textProperty().isEmpty()).or(
-                    cityTxtFld.textProperty().isEmpty()).or(
-                            addressTxtFld.textProperty().isEmpty()));
+    addBtn.disableProperty().bind(nameTxtFld.textProperty().isEmpty()
+            .or(nipTxtFld.textProperty().isEmpty())
+            .or(postCodeTxtFld.textProperty().isEmpty())
+            .or(cityTxtFld.textProperty().isEmpty())
+            .or(addressTxtFld.textProperty().isEmpty()));
     addClientModel.getClientFx().nameProperty().bind(nameTxtFld.textProperty());
     addClientModel.getClientFx().nipProperty().bind(nipTxtFld.textProperty());
     addClientModel.getClientFx().postCodeProperty().bind(postCodeTxtFld.textProperty());

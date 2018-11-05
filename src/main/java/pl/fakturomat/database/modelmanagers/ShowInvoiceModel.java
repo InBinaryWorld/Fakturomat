@@ -17,7 +17,6 @@ public class ShowInvoiceModel {
   private InvoiceFx invoiceFx;
   private double totalAmount;
 
-
   /**
    * init.
    * @param invoiceFx invoiceFx.
@@ -34,30 +33,20 @@ public class ShowInvoiceModel {
 
     totalAmount = 0;
     orderFxList.forEach(orderFx -> totalAmount += orderFx.getAmount());
+    totalAmount = ((int)(totalAmount*100))/100.0;
   }
 
   public ObservableList<OrderFx> getOrderFxList() {
     return orderFxList;
   }
 
-  public void setOrderFxList(ObservableList<OrderFx> orderFxList) {
-    this.orderFxList = orderFxList;
-  }
-
   public InvoiceFx getInvoiceFx() {
     return invoiceFx;
-  }
-
-  public void setInvoiceFx(InvoiceFx invoiceFx) {
-    this.invoiceFx = invoiceFx;
   }
 
   public double getTotalAmount() {
     return totalAmount;
   }
 
-  public void setTotalAmount(double totalAmount) {
-    this.totalAmount = totalAmount;
-  }
 }
 

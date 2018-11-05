@@ -26,7 +26,7 @@ public class MainController {
 
   @FXML
   private void alwaysOnTopAction() {
-    Stage stage = (Stage) mainBorderPane.getScene().getWindow();
+    final Stage stage = (Stage) mainBorderPane.getScene().getWindow();
     stage.setAlwaysOnTop(alwaysOnTopBtn.isSelected());
   }
 
@@ -37,11 +37,10 @@ public class MainController {
 
   @FXML
   private void exitAction() {
-    Optional<ButtonType> result = DialogTools.confirmationDialog();
-    if (result.isPresent()) {
-      if (result.get().getButtonData().equals(ButtonBar.ButtonData.YES)) {
-        System.exit(0);
-      }
+    final Optional<ButtonType> result = DialogTools.confirmationDialog();
+    if (result.isPresent() && result.get().getButtonData().equals(ButtonBar.ButtonData.YES)) {
+      System.exit(0);
+
     }
   }
 
@@ -61,7 +60,7 @@ public class MainController {
     setCenter(NEW_INVOICE_FXML);
   }
 
-  void setCenter(String patch) {
+  void setCenter(final String patch) {
     mainBorderPane.setCenter(FxmlTools.fxmlLoader(patch));
   }
 }

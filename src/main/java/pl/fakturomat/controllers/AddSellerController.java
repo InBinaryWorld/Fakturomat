@@ -39,7 +39,7 @@ public class AddSellerController {
     } catch (ApplicationException ee1) {
       DialogTools.errorDialog(ee1.getMessage());
     }
-    Stage stage = (Stage) addBtn.getScene().getWindow();
+    final Stage stage = (Stage) addBtn.getScene().getWindow();
     stage.close();
   }
 
@@ -48,11 +48,11 @@ public class AddSellerController {
   }
 
   private void initBindings() {
-    addBtn.disableProperty().bind(nameTxtFld.textProperty().isEmpty().or(
-            nipTxtFld.textProperty().isEmpty()).or(
-            postCodeTxtFld.textProperty().isEmpty()).or(
-                    cityTxtFld.textProperty().isEmpty()).or(
-                            addressTxtFld.textProperty().isEmpty()));
+    addBtn.disableProperty().bind(nameTxtFld.textProperty().isEmpty()
+            .or(nipTxtFld.textProperty().isEmpty())
+            .or(postCodeTxtFld.textProperty().isEmpty())
+            .or(cityTxtFld.textProperty().isEmpty())
+            .or(addressTxtFld.textProperty().isEmpty()));
     addSellerModel.getSellerFx().nameProperty().bind(nameTxtFld.textProperty());
     addSellerModel.getSellerFx().nipProperty().bind(nipTxtFld.textProperty());
     addSellerModel.getSellerFx().postCodeProperty().bind(postCodeTxtFld.textProperty());

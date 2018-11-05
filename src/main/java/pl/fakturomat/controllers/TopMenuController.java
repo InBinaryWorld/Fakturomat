@@ -36,7 +36,7 @@ public class TopMenuController {
     mainController.setCenter(PRODUCTS_FXML);
   }
 
-  void setMainController(MainController mainController) {
+  void setMainController(final MainController mainController) {
     this.mainController = mainController;
   }
 
