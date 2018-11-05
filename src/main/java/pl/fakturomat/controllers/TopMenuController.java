@@ -1,6 +1,7 @@
 package pl.fakturomat.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ToggleGroup;
 
 public class TopMenuController {
 
@@ -9,6 +10,7 @@ public class TopMenuController {
   private static final String ADD_CLIENTS_FXML = "/fxml/Clients.fxml";
   private static final String ADD_SELLER_FXML = "/fxml/Sellers.fxml";
   private static final String PRODUCTS_FXML = "/fxml/Products.fxml";
+  public ToggleGroup toggleGroup;
   private MainController mainController;
 
   @FXML

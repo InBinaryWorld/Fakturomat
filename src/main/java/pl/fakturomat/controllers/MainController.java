@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import pl.fakturomat.tools.DialogTools;
@@ -17,6 +18,8 @@ public class MainController {
   private static final String NEW_INVOICE_FXML = "/fxml/NewInvoice.fxml";
   @FXML
   public CheckMenuItem alwaysOnTopBtn;
+  @FXML
+  public ToggleGroup styleGroup;
 
   @FXML
   private TopMenuController topMenuController;

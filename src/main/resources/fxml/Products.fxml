@@ -6,26 +6,25 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_RIGHT" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.fakturomat.controllers.ProductsController">
-    <children>
-        <TableView fx:id="tableView" tableMenuButtonVisible="true">
-            <columns>
-                <TableColumn fx:id="nameClm" minWidth="-1.0" prefWidth="-1.0" text="Nazwa" />
-                <TableColumn fx:id="measureClm" minWidth="-1.0" prefWidth="-1.0" text="J. m." />
-                <TableColumn fx:id="priceClm" minWidth="-1.0" prefWidth="-1.0" text=" Cena netto " />
-                <TableColumn fx:id="taxColumn" prefWidth="-1.0" text="Stawka VAT (%)" />
-            </columns>
-            <VBox.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </VBox.margin>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
-        </TableView>
-        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#addAction" text="Dodaj produkt">
-            <VBox.margin>
-                <Insets bottom="10.0" right="40.0" />
-            </VBox.margin>
-        </Button>
-    </children>
+<VBox alignment="TOP_RIGHT" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.fakturomat.controllers.ProductsController">
+    <TableView fx:id="tableView" tableMenuButtonVisible="true">
+        <columns>
+            <TableColumn fx:id="nameClm" minWidth="-1.0" prefWidth="-1.0" text="Nazwa"/>
+            <TableColumn fx:id="measureClm" minWidth="-1.0" prefWidth="-1.0" text="J. m."/>
+            <TableColumn fx:id="priceClm" minWidth="-1.0" prefWidth="-1.0" text=" Cena netto "/>
+            <TableColumn fx:id="taxColumn" prefWidth="-1.0" text="Stawka VAT (%)"/>
+        </columns>
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </VBox.margin>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#addAction" text="Dodaj produkt">
+        <VBox.margin>
+            <Insets bottom="10.0" right="40.0"/>
+        </VBox.margin>
+    </Button>
 </VBox>

@@ -13,35 +13,27 @@
 <BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.fakturomat.controllers.MainController">
     <top>
         <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="1200.0" BorderPane.alignment="TOP_CENTER">
-            <children>
-                <MenuBar>
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Plik">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#exitAction" text="Wyjdź" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Edycja">
-                            <items>
-                                <RadioMenuItem mnemonicParsing="false" onAction="#setCaspian" text="Caspian">
-                                    <toggleGroup>
-                                        <ToggleGroup fx:id="styleGrup" />
-                                    </toggleGroup>
-                                </RadioMenuItem>
-                                <RadioMenuItem mnemonicParsing="false" onAction="#setModena" text="Modena" toggleGroup="$styleGrup" />
-                                <SeparatorMenuItem mnemonicParsing="false" />
-                                <CheckMenuItem fx:id="alwaysOnTopBtn" mnemonicParsing="false" onAction="#alwaysOnTopAction" text="Zawsze na wierzchu" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Pomoc">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#aboutAction" text="O programie" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-                <fx:include fx:id="topMenu" source="/fxml/TopMenu.fxml"  />
-            </children>
+            <MenuBar>
+                <Menu mnemonicParsing="false" text="Plik">
+                    <MenuItem mnemonicParsing="false" onAction="#exitAction" text="Wyjdź"/>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edycja">
+                    <RadioMenuItem mnemonicParsing="false" onAction="#setCaspian" text="Caspian">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="styleGroup"/>
+                        </toggleGroup>
+                    </RadioMenuItem>
+                    <RadioMenuItem mnemonicParsing="false" onAction="#setModena" text="Modena"
+                                   toggleGroup="$styleGroup"/>
+                    <SeparatorMenuItem mnemonicParsing="false"/>
+                    <CheckMenuItem fx:id="alwaysOnTopBtn" mnemonicParsing="false" onAction="#alwaysOnTopAction"
+                                   text="Zawsze na wierzchu"/>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Pomoc">
+                    <MenuItem mnemonicParsing="false" onAction="#aboutAction" text="O programie"/>
+                </Menu>
+            </MenuBar>
+            <fx:include fx:id="topMenu" source="/fxml/TopMenu.fxml"/>
         </VBox>
     </top>
 </BorderPane>
