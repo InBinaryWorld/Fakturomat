@@ -1,12 +1,12 @@
-package pl.fakturomat.dataBase.modelsFx;
+package pl.fakturomat.database.modelsfx;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class SellerFx {
-  private IntegerProperty sellerId = new SimpleIntegerProperty();
+public class ClientFx {
+  private IntegerProperty clientId = new SimpleIntegerProperty();
   private StringProperty name = new SimpleStringProperty();
   private StringProperty nip = new SimpleStringProperty();
   private StringProperty postCode = new SimpleStringProperty();
@@ -14,19 +14,19 @@ public class SellerFx {
   private StringProperty address = new SimpleStringProperty();
   private StringProperty phone = new SimpleStringProperty();
 
-  public SellerFx() {
+  public ClientFx() {
   }
 
-  public int getSellerId() {
-    return sellerId.get();
+  public int getClientId() {
+    return clientId.get();
   }
 
-  public IntegerProperty sellerIdProperty() {
-    return sellerId;
+  public IntegerProperty clientIdProperty() {
+    return clientId;
   }
 
-  public void setSellerId(int sellerId) {
-    this.sellerId.set(sellerId);
+  public void setClientId(int clientId) {
+    this.clientId.set(clientId);
   }
 
   public String getName() {

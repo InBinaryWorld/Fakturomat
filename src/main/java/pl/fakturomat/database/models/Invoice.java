@@ -1,4 +1,4 @@
-package pl.fakturomat.dataBase.models;
+package pl.fakturomat.database.models;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -9,16 +9,19 @@ import java.util.Date;
 @DatabaseTable(tableName = "INVOICE")
 public class Invoice implements BaseModel {
 
-  @DatabaseField(columnName = "INVOICE_ID",generatedId = true ,unique = true)
+  @DatabaseField(columnName = "INVOICE_ID", generatedId = true, unique = true)
   private int id;
 
-  @DatabaseField(columnName = "SELLER_ID" ,foreign = true, canBeNull = false , foreignAutoRefresh = true)
+  @DatabaseField(columnName = "SELLER_ID", foreign = true,
+          canBeNull = false, foreignAutoRefresh = true)
   private Seller seller;
 
-  @DatabaseField(columnName = "CLIENT_ID" ,foreign = true, canBeNull = false ,foreignAutoRefresh = true)
+  @DatabaseField(columnName = "CLIENT_ID", foreign = true,
+          canBeNull = false, foreignAutoRefresh = true)
   private Client client;
 
-  @DatabaseField(columnName = "DATE" ,canBeNull = false, dataType = DataType.DATE_STRING, format = "yyyy-MM-dd")
+  @DatabaseField(columnName = "DATE", canBeNull = false,
+          dataType = DataType.DATE_STRING, format = "yyyy-MM-dd")
   private Date data;
 
   public Invoice() {

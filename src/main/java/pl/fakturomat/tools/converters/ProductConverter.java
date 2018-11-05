@@ -1,12 +1,15 @@
 package pl.fakturomat.tools.converters;
 
-import pl.fakturomat.dataBase.models.Product;
-import pl.fakturomat.dataBase.models.Seller;
-import pl.fakturomat.dataBase.modelsFx.ProductFx;
-import pl.fakturomat.dataBase.modelsFx.SellerFx;
+import pl.fakturomat.database.models.Product;
+import pl.fakturomat.database.modelsfx.ProductFx;
 
 public abstract class ProductConverter {
-  public static ProductFx convertToProductFx(Product product){
+  /**
+   * Converter.
+   * @param product Product.
+   * @return ProductFx.
+   */
+  public static ProductFx convertToProductFx(Product product) {
     ProductFx productFx = new ProductFx();
     productFx.setProductId(product.getProductId());
     productFx.setName(product.getName());
@@ -16,14 +19,19 @@ public abstract class ProductConverter {
     return productFx;
   }
 
-    public static Product convertToProduct(ProductFx productFX){
-      Product product = new Product();
-      product.setProductId(productFX.getProductId());
-      product.setName(productFX.getName());
-      product.setMeasure(productFX.getMeasure());
-      product.setPrice(productFX.getPrice());
-      product.setTax(productFX.getTax());
-      return product;
-    }
+  /**
+   * Converter.
+   * @param productFx productFx.
+   * @return Product.
+   */
+  public static Product convertToProduct(ProductFx productFx) {
+    Product product = new Product();
+    product.setProductId(productFx.getProductId());
+    product.setName(productFx.getName());
+    product.setMeasure(productFx.getMeasure());
+    product.setPrice(productFx.getPrice());
+    product.setTax(productFx.getTax());
+    return product;
+  }
 
 }

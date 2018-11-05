@@ -3,8 +3,8 @@ package pl.fakturomat.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import pl.fakturomat.dataBase.modelsFx.ProductFx;
-import pl.fakturomat.dataBase.modelManagers.ProductModel;
+import pl.fakturomat.database.modelmanagers.ProductModel;
+import pl.fakturomat.database.modelsfx.ProductFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.DialogTools;
 
@@ -14,35 +14,37 @@ public class ProductsController {
   private TableView<ProductFx> tableView;
 
   @FXML
-  private TableColumn<ProductFx, String> nameColumn;
+  private TableColumn<ProductFx, String> nameClm;
 
   @FXML
-  private TableColumn<ProductFx, String> measureColumn;
+  private TableColumn<ProductFx, String> measureClm;
 
   @FXML
-  private TableColumn<ProductFx, Double> priceColumn;
+  private TableColumn<ProductFx, Double> priceClm;
 
   @FXML
   private TableColumn<ProductFx, Double> taxColumn;
 
-  ProductModel productModel = new ProductModel();
-
-  public void initialize(){
+  /**
+   * Initialize.
+   */
+  @FXML
+  public void initialize() {
 
     try {
-      productModel.init();
-    } catch (ApplicationException e) {
-      DialogTools.errorDialog(e.getMessage());
+      ProductModel.init();
+    } catch (ApplicationException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
     initTableView();
   }
 
   private void initTableView() {
-    tableView.setItems(productModel.getClientFxList());
-    nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-    measureColumn.setCellValueFactory(cellData -> cellData.getValue().measureProperty());
+    tableView.setItems(ProductModel.getClientFxList());
+    nameClm.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+    measureClm.setCellValueFactory(cellData -> cellData.getValue().measureProperty());
     taxColumn.setCellValueFactory(cellData -> cellData.getValue().taxProperty().asObject());
-    priceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
+    priceClm.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
   }
 
   @FXML
@@ -50,8 +52,8 @@ public class ProductsController {
     DialogTools.addProductDialog();
     try {
       ProductModel.init();
-    } catch (ApplicationException e) {
-      DialogTools.errorDialog(e.getMessage());
+    } catch (ApplicationException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
   }
 

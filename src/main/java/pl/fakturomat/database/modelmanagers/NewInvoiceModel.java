@@ -1,24 +1,24 @@
-package pl.fakturomat.dataBase.modelManagers;
+package pl.fakturomat.database.modelmanagers;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pl.fakturomat.dataBase.dao.ClientDao;
-import pl.fakturomat.dataBase.dao.InvoiceDao;
-import pl.fakturomat.dataBase.dao.OrderDao;
-import pl.fakturomat.dataBase.dao.SellerDao;
-import pl.fakturomat.dataBase.models.Client;
-import pl.fakturomat.dataBase.models.Invoice;
-import pl.fakturomat.dataBase.models.Seller;
-import pl.fakturomat.dataBase.modelsFx.ClientFx;
-import pl.fakturomat.dataBase.modelsFx.InvoiceFx;
-import pl.fakturomat.dataBase.modelsFx.OrderFx;
-import pl.fakturomat.dataBase.modelsFx.SellerFx;
+import pl.fakturomat.database.dao.ClientDao;
+import pl.fakturomat.database.dao.InvoiceDao;
+import pl.fakturomat.database.dao.OrderDao;
+import pl.fakturomat.database.dao.SellerDao;
+import pl.fakturomat.database.models.Client;
+import pl.fakturomat.database.models.Invoice;
+import pl.fakturomat.database.models.Seller;
+import pl.fakturomat.database.modelsfx.ClientFx;
+import pl.fakturomat.database.modelsfx.InvoiceFx;
+import pl.fakturomat.database.modelsfx.OrderFx;
+import pl.fakturomat.database.modelsfx.SellerFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.converters.ClientConverter;
-import pl.fakturomat.tools.converters.InvoiceConventer;
-import pl.fakturomat.tools.converters.OrderConventer;
+import pl.fakturomat.tools.converters.InvoiceConverter;
+import pl.fakturomat.tools.converters.OrderConverter;
 import pl.fakturomat.tools.converters.SellerConverter;
 
 import java.sql.SQLException;
@@ -34,6 +34,10 @@ public class NewInvoiceModel {
   public NewInvoiceModel() {
   }
 
+  /**
+   * Init.
+   * @throws ApplicationException Error.
+   */
   public void init() throws ApplicationException {
     ClientDao clientDao = new ClientDao();
     List<Client> clientList = clientDao.queryForAll();
@@ -47,16 +51,22 @@ public class NewInvoiceModel {
 
   }
 
+  /**
+   * Save.
+   * @throws ApplicationException Error.
+   * @throws SQLException Error.
+   */
   public void saveInDatabase() throws ApplicationException, SQLException {
     InvoiceDao invoiceDao = new InvoiceDao();
-    invoiceDao.create(InvoiceConventer.convertToInvoice(getInvoiceFx()));
+    invoiceDao.create(InvoiceConverter.convertToInvoice(getInvoiceFx()));
 
-    List<Invoice> list = invoiceDao.getDao().queryBuilder().orderBy("INVOICE_ID", false).limit((long) 1).query();
+    List<Invoice> list = invoiceDao.getDao().queryBuilder()
+            .orderBy("INVOICE_ID", false).limit((long) 1).query();
     getInvoiceFx().setInvoiceId(list.get(0).getId());
 
     OrderDao orderDao = new OrderDao();
-    for (OrderFx orderFx:orderFxList) {
-      orderDao.create(OrderConventer.convertToOrder(orderFx));
+    for (OrderFx orderFx : orderFxList) {
+      orderDao.create(OrderConverter.convertToOrder(orderFx));
     }
   }
 

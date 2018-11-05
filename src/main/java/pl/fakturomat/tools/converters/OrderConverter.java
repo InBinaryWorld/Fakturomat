@@ -1,28 +1,37 @@
 package pl.fakturomat.tools.converters;
 
-import pl.fakturomat.dataBase.models.Order;
-import pl.fakturomat.dataBase.modelsFx.OrderFx;
+import pl.fakturomat.database.models.Order;
+import pl.fakturomat.database.modelsfx.OrderFx;
 
-public abstract class OrderConventer {
-  public static OrderFx convertToOrderFx(Order order){
+public abstract class OrderConverter {
+  /**
+   * Converter.
+   * @param order Order.
+   * @return OrderFx.
+   */
+  public static OrderFx convertToOrderFx(Order order) {
     OrderFx orderFx = new OrderFx();
     orderFx.setName(order.getName());
     orderFx.setMeasure(order.getMeasure());
     orderFx.setPrice(order.getPrice());
     orderFx.setTax(order.getTax());
-    orderFx.setInvoiceFx(InvoiceConventer.convertToInvoiceFx(order.getInvoice()));
+    orderFx.setInvoiceFx(InvoiceConverter.convertToInvoiceFx(order.getInvoice()));
     orderFx.setQuantity(order.getQuantity());
-    //orderFx.setAmount(order.getAmount());
     return orderFx;
   }
 
-  public static Order convertToOrder(OrderFx orderFx){
+  /**
+   * Converter.
+   * @param orderFx OrderFx.
+   * @return Order.
+   */
+  public static Order convertToOrder(OrderFx orderFx) {
     Order order = new Order();
     order.setName(orderFx.getName());
     order.setMeasure(orderFx.getMeasure());
     order.setPrice(orderFx.getPrice());
     order.setTax(orderFx.getTax());
-    order.setInvoice(InvoiceConventer.convertToInvoice(orderFx.getInvoiceFx()));
+    order.setInvoice(InvoiceConverter.convertToInvoice(orderFx.getInvoiceFx()));
     order.setQuantity(orderFx.getQuantity());
     order.setAmount(orderFx.getAmount());
     return order;

@@ -83,33 +83,33 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addAction" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="nameTextField" GridPane.columnIndex="1">
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addAction" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="nameTxtFld" GridPane.columnIndex="1">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="nipTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="nipTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="postCodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="postCodeTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="cityTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="cityTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="addressTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="addressTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="phoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="phoneTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="13.0" />
                </font>

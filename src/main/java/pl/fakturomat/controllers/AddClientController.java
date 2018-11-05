@@ -4,42 +4,36 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import pl.fakturomat.dataBase.modelManagers.AddClientModel;
+import pl.fakturomat.database.modelmanagers.AddClientModel;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.DialogTools;
 
 public class AddClientController {
   @FXML
-  public Button addButton;
-
+  public Button addBtn;
   @FXML
-  private TextField nameTextField;
-
+  private TextField nameTxtFld;
   @FXML
-  private TextField nipTextField;
-
+  private TextField nipTxtFld;
   @FXML
-  private TextField postCodeTextField;
-
+  private TextField postCodeTxtFld;
   @FXML
-  private TextField cityTextField;
-
+  private TextField cityTxtFld;
   @FXML
-  private TextField addressTextField;
-
+  private TextField addressTxtFld;
   @FXML
-  private TextField phoneTextField;
+  private TextField phoneTxtFld;
 
-  AddClientModel addClientModel = new AddClientModel();
+  private AddClientModel addClientModel = new AddClientModel();
 
   @FXML
   void addAction() {
     try {
       addClientModel.saveClientInDataBase();
-    } catch (ApplicationException e) {
-      DialogTools.errorDialog(e.getMessage());
+    } catch (ApplicationException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
-    Stage stage = (Stage) addButton.getScene().getWindow();
+    Stage stage = (Stage) addBtn.getScene().getWindow();
     stage.close();
   }
 
@@ -48,14 +42,17 @@ public class AddClientController {
   }
 
   private void initBindings() {
-    addButton.disableProperty().bind(nameTextField.textProperty().isEmpty().or(nipTextField.textProperty().isEmpty()).or(
-            postCodeTextField.textProperty().isEmpty()).or(cityTextField.textProperty().isEmpty()).or(addressTextField.textProperty().isEmpty()));
-    addClientModel.getClientFx().nameProperty().bind(nameTextField.textProperty());
-    addClientModel.getClientFx().nipProperty().bind(nipTextField.textProperty());
-    addClientModel.getClientFx().postCodeProperty().bind(postCodeTextField.textProperty());
-    addClientModel.getClientFx().cityProperty().bind(cityTextField.textProperty());
-    addClientModel.getClientFx().addressProperty().bind(addressTextField.textProperty());
-    addClientModel.getClientFx().phoneProperty().bind(phoneTextField.textProperty());
+    addBtn.disableProperty().bind(nameTxtFld.textProperty().isEmpty().or(
+            nipTxtFld.textProperty().isEmpty()).or(
+                    postCodeTxtFld.textProperty().isEmpty()).or(
+                    cityTxtFld.textProperty().isEmpty()).or(
+                            addressTxtFld.textProperty().isEmpty()));
+    addClientModel.getClientFx().nameProperty().bind(nameTxtFld.textProperty());
+    addClientModel.getClientFx().nipProperty().bind(nipTxtFld.textProperty());
+    addClientModel.getClientFx().postCodeProperty().bind(postCodeTxtFld.textProperty());
+    addClientModel.getClientFx().cityProperty().bind(cityTxtFld.textProperty());
+    addClientModel.getClientFx().addressProperty().bind(addressTxtFld.textProperty());
+    addClientModel.getClientFx().phoneProperty().bind(phoneTxtFld.textProperty());
   }
 
 }

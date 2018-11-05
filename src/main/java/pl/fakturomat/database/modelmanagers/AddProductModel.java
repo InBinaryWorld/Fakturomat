@@ -1,10 +1,10 @@
-package pl.fakturomat.dataBase.modelManagers;
+package pl.fakturomat.database.modelmanagers;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import pl.fakturomat.dataBase.dao.ProductDao;
-import pl.fakturomat.dataBase.models.Product;
-import pl.fakturomat.dataBase.modelsFx.ProductFx;
+import pl.fakturomat.database.dao.ProductDao;
+import pl.fakturomat.database.models.Product;
+import pl.fakturomat.database.modelsfx.ProductFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.converters.ProductConverter;
 
@@ -14,6 +14,10 @@ public class AddProductModel {
   public AddProductModel() {
   }
 
+  /**
+   * save.
+   * @throws ApplicationException error.
+   */
   public void saveProductInDataBase() throws ApplicationException {
     ProductDao productDao =  new ProductDao();
     Product product = ProductConverter.convertToProduct(getProductFx());

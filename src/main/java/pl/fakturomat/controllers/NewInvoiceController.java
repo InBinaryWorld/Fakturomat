@@ -6,10 +6,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import pl.fakturomat.dataBase.modelManagers.NewInvoiceModel;
-import pl.fakturomat.dataBase.modelsFx.ClientFx;
-import pl.fakturomat.dataBase.modelsFx.OrderFx;
-import pl.fakturomat.dataBase.modelsFx.SellerFx;
+import pl.fakturomat.database.modelmanagers.NewInvoiceModel;
+import pl.fakturomat.database.modelsfx.ClientFx;
+import pl.fakturomat.database.modelsfx.OrderFx;
+import pl.fakturomat.database.modelsfx.SellerFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.DialogTools;
 
@@ -19,45 +19,48 @@ import java.time.LocalDate;
 public class NewInvoiceController {
 
   @FXML
-  private ComboBox<SellerFx> sellerComboBox;
+  private ComboBox<SellerFx> sellerComBox;
 
   @FXML
-  private ComboBox<ClientFx> clientComboBox;
+  private ComboBox<ClientFx> clientComBox;
 
   @FXML
   private TableView<OrderFx> tableView;
 
   @FXML
-  private TableColumn<OrderFx, String> nameColumn;
+  private TableColumn<OrderFx, String> nameClm;
 
   @FXML
-  private TableColumn<OrderFx, Double> quantityColumn;
+  private TableColumn<OrderFx, Double> quantityClm;
 
   @FXML
-  private TableColumn<OrderFx, String> measureColumn;
+  private TableColumn<OrderFx, String> measureClm;
 
   @FXML
-  private TableColumn<OrderFx, Double> priceColumn;
+  private TableColumn<OrderFx, Double> priceClm;
 
   @FXML
-  private TableColumn<OrderFx, Double> taxColumn;
+  private TableColumn<OrderFx, Double> taxClm;
 
   @FXML
-  private TableColumn<OrderFx, Double> amountColumn;
+  private TableColumn<OrderFx, Double> amountClm;
 
   @FXML
   private Label totalAmountLabel;
 
   @FXML
-  private Button acceptInvoiceButton;
+  private Button acceptInvoiceBtn;
 
-  NewInvoiceModel newInvoiceModel = new NewInvoiceModel();
+  private NewInvoiceModel newInvoiceModel = new NewInvoiceModel();
 
-  public void initialize(){
+  /**
+   * Initialize.
+   */
+  public void initialize() {
     try {
       newInvoiceModel.init();
-    } catch (ApplicationException e) {
-      DialogTools.errorDialog(e.getMessage());
+    } catch (ApplicationException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
     initControls();
     initBindings();
@@ -66,25 +69,22 @@ public class NewInvoiceController {
 
   private void initControls() {
 
-    sellerComboBox.setItems(newInvoiceModel.getSellerFxList());
-    clientComboBox.setItems(newInvoiceModel.getClientFxList());
+    sellerComBox.setItems(newInvoiceModel.getSellerFxList());
+    clientComBox.setItems(newInvoiceModel.getClientFxList());
     tableView.setItems(newInvoiceModel.getOrderFxList());
-    nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-    quantityColumn.setCellValueFactory(cellData -> cellData.getValue().quantityProperty().asObject());
-    amountColumn.setCellValueFactory(cellData -> cellData.getValue().amountProperty().asObject());
-    taxColumn.setCellValueFactory(cellData -> cellData.getValue().taxProperty().asObject());
-    measureColumn.setCellValueFactory(cellData -> cellData.getValue().measureProperty());
-    priceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
-
+    nameClm.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+    quantityClm.setCellValueFactory(cellData -> cellData.getValue().quantityProperty().asObject());
+    amountClm.setCellValueFactory(cellData -> cellData.getValue().amountProperty().asObject());
+    taxClm.setCellValueFactory(cellData -> cellData.getValue().taxProperty().asObject());
+    measureClm.setCellValueFactory(cellData -> cellData.getValue().measureProperty());
+    priceClm.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
   }
 
   private void initBindings() {
-    acceptInvoiceButton.disableProperty().bind(clientComboBox.valueProperty().isNull().or(sellerComboBox.valueProperty().isNull()));
-    newInvoiceModel.getInvoiceFx().clientFxProperty().bind(clientComboBox.valueProperty());
-    newInvoiceModel.getInvoiceFx().sellerFxProperty().bind(sellerComboBox.valueProperty());
-    //Można przeniećć do acceptInvoiceAction
-    newInvoiceModel.getInvoiceFx().setDate(LocalDate.now());
-
+    acceptInvoiceBtn.disableProperty().bind(clientComBox.valueProperty().isNull().or(
+            sellerComBox.valueProperty().isNull()));
+    newInvoiceModel.getInvoiceFx().clientFxProperty().bind(clientComBox.valueProperty());
+    newInvoiceModel.getInvoiceFx().sellerFxProperty().bind(sellerComBox.valueProperty());
   }
 
   public NewInvoiceController() {
@@ -92,10 +92,11 @@ public class NewInvoiceController {
 
   @FXML
   void acceptInvoiceAction() {
+    newInvoiceModel.getInvoiceFx().setDate(LocalDate.now());
     try {
       newInvoiceModel.saveInDatabase();
-    } catch (ApplicationException | SQLException e) {
-      DialogTools.errorDialog(e.getMessage());
+    } catch (ApplicationException | SQLException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
 
     newInvoiceModel = new NewInvoiceModel();
@@ -106,13 +107,11 @@ public class NewInvoiceController {
   void addProductAction() {
     DialogTools.addOrderDialog(newInvoiceModel);
 
-    double count =0;
-    for (OrderFx orderFx: newInvoiceModel.getOrderFxList()) {
-      count +=orderFx.getAmount();
-    };
-    totalAmountLabel.setText(count+"");
-
-
+    double count = 0;
+    for (OrderFx orderFx : newInvoiceModel.getOrderFxList()) {
+      count += orderFx.getAmount();
+    }
+    totalAmountLabel.setText(count + "");
   }
 
 }

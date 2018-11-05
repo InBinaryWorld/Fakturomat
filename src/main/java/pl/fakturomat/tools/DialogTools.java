@@ -2,26 +2,31 @@ package pl.fakturomat.tools;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pl.fakturomat.controllers.AddOrderController;
 import pl.fakturomat.controllers.ShowInvoiceController;
-import pl.fakturomat.dataBase.modelManagers.NewInvoiceModel;
-import pl.fakturomat.dataBase.modelsFx.InvoiceFx;
+import pl.fakturomat.database.modelmanagers.NewInvoiceModel;
+import pl.fakturomat.database.modelsfx.InvoiceFx;
 
 import java.io.IOException;
 import java.util.Optional;
 
 public class DialogTools {
 
-  public static final String ADD_CLIENT_FXML = "/fxml/AddClient.fxml";
-  public static final String ADD_SELLER_FXML = "/fxml/AddSeller.fxml";
-  public static final String ADD_PRODUCT_FXML = "/fxml/AddProduct.fxml";
-  public static final String ADD_ORDER_FXML = "/fxml/AddOrder.fxml";
-  public static final String SHOW_INVOICE_FXML = "/fxml/ShowInvoice.fxml";
+  private static final String ADD_CLIENT_FXML = "/fxml/AddClient.fxml";
+  private static final String ADD_SELLER_FXML = "/fxml/AddSeller.fxml";
+  private static final String ADD_PRODUCT_FXML = "/fxml/AddProduct.fxml";
+  private static final String ADD_ORDER_FXML = "/fxml/AddOrder.fxml";
+  private static final String SHOW_INVOICE_FXML = "/fxml/ShowInvoice.fxml";
 
+  /**
+   * Dialog.
+   */
   public static void dialogAboutApplication() {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("O Programie");
@@ -30,6 +35,11 @@ public class DialogTools {
     alert.showAndWait();
   }
 
+  /**
+   * Dialog.
+   *
+   * @return optional.
+   */
   public static Optional<ButtonType> confirmationDialog() {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Wyjdź");
@@ -37,15 +47,18 @@ public class DialogTools {
     ButtonType yesButton = ButtonTypes.YES;
     ButtonType noButton = ButtonTypes.NO;
     alert.getButtonTypes().setAll(noButton, yesButton);
-    Optional<ButtonType> result = alert.showAndWait();
-    return result;
+    return alert.showAndWait();
   }
 
+  /**
+   * dilog.
+   *
+   * @param error Error.
+   */
   public static void errorDialog(String error) {
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Błąd");
     alert.setHeaderText("Uwaga! Błąd!");
-
     TextArea textArea = new TextArea(error);
     textArea.setEditable(false);
     alert.getDialogPane().setContent(textArea);
@@ -64,17 +77,22 @@ public class DialogTools {
     addDialog(ADD_PRODUCT_FXML, "Dodaj produkt");
   }
 
-  private static void addDialog(String s, String s2) {
-    Pane pane = FxmlTools.fxmlLoader(s);
+  private static void addDialog(String patch, String title) {
+    Pane pane = FxmlTools.fxmlLoader(patch);
+    assert pane != null;
     Scene scene = new Scene(pane);
     Stage stage = new Stage();
     stage.setScene(scene);
     stage.setResizable(false);
     stage.initModality(Modality.APPLICATION_MODAL);
-    stage.setTitle(s2);
+    stage.setTitle(title);
     stage.showAndWait();
   }
 
+  /**
+   * Dialog.
+   * @param newInvoiceModel In.
+   */
   public static void addOrderDialog(NewInvoiceModel newInvoiceModel) {
     FXMLLoader loader = new FXMLLoader(FxmlTools.class.getResource(ADD_ORDER_FXML));
     Pane pane;
@@ -89,11 +107,15 @@ public class DialogTools {
       stage.initModality(Modality.APPLICATION_MODAL);
       stage.setTitle("Dodaj Produkt");
       stage.showAndWait();
-    } catch (IOException e) {
-      errorDialog(e.getMessage());
+    } catch (IOException ee1) {
+      errorDialog(ee1.getMessage());
     }
   }
 
+  /**
+   * Dialog.
+   * @param invoiceFx InvoiceFx.
+   */
   public static void showInvoice(InvoiceFx invoiceFx) {
     FXMLLoader loader = new FXMLLoader(FxmlTools.class.getResource(SHOW_INVOICE_FXML));
     Pane pane;
@@ -108,8 +130,8 @@ public class DialogTools {
       stage.initModality(Modality.APPLICATION_MODAL);
       stage.setTitle("Faktura");
       stage.showAndWait();
-    } catch (IOException e) {
-      errorDialog(e.getMessage());
+    } catch (IOException ee1) {
+      errorDialog(ee1.getMessage());
 
     }
   }

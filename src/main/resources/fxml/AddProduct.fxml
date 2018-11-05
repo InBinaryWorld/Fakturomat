@@ -65,22 +65,22 @@
                     </padding>
                 </Label>
                 <Button fx:id="addButton" mnemonicParsing="false" onAction="#addAction" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField fx:id="nameTextField" GridPane.columnIndex="1">
+                <TextField fx:id="nameTxtFld" GridPane.columnIndex="1">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="measureTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="measureTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="priceTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TextField fx:id="priceTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="taxTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <TextField fx:id="taxTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <font>
                         <Font size="13.0" />
                     </font>

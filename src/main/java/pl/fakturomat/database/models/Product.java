@@ -1,4 +1,4 @@
-package pl.fakturomat.dataBase.models;
+package pl.fakturomat.database.models;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

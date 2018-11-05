@@ -1,10 +1,15 @@
-package pl.fakturomat.dataBase.modelsFx;
+package pl.fakturomat.database.modelsfx;
 
 import javafx.beans.binding.DoubleBinding;
-import javafx.beans.property.*;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class OrderFx {
-  private ObjectProperty <InvoiceFx> invoiceFx = new SimpleObjectProperty<>();
+  private ObjectProperty<InvoiceFx> invoiceFx = new SimpleObjectProperty<>();
   private DoubleProperty quantity = new SimpleDoubleProperty();
   private StringProperty name = new SimpleStringProperty();
   private StringProperty measure = new SimpleStringProperty();
@@ -12,9 +17,12 @@ public class OrderFx {
   private DoubleProperty tax = new SimpleDoubleProperty();
   private DoubleProperty amount = new SimpleDoubleProperty();
 
+  /**
+   * Constructor.
+   */
   public OrderFx() {
-    DoubleBinding doubleBinding =price.multiply(quantity).add(price.multiply(quantity).multiply(tax).divide(100));
-    //amount.bind(price.multiply(quantity).add(price.multiply(quantity).multiply(tax).divide(100)));
+    DoubleBinding doubleBinding = price.multiply(quantity)
+            .add(price.multiply(quantity).multiply(tax).divide(100));
 
     DoubleBinding db = new DoubleBinding() {
 
@@ -24,12 +32,13 @@ public class OrderFx {
 
       @Override
       protected double computeValue() {
-        return ((double)((int)(doubleBinding.get()*100)))/100;
+        return ((double) ((int) (doubleBinding.get() * 100))) / 100;
       }
     };
     amount.bind(db);
 
   }
+
 
   public InvoiceFx getInvoiceFx() {
     return invoiceFx.get();
@@ -49,10 +58,6 @@ public class OrderFx {
 
   public DoubleProperty amountProperty() {
     return amount;
-  }
-
-  public void setAmount(double amount) {
-    this.amount.set(amount);
   }
 
   public String getName() {

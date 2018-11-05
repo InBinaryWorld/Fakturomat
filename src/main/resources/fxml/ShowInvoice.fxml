@@ -46,7 +46,7 @@
                         </Label>
                         <HBox spacing="5.0">
                            <children>
-                              <Label text="nip:">
+                              <Label text="NIP:">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -116,7 +116,7 @@
                         </Label>
                         <HBox spacing="5.0">
                            <children>
-                              <Label text="nip:" />
+                              <Label text="NIP" />
                               <Label fx:id="clientNipLabel" text="Label" />
                            </children>
                            <padding>

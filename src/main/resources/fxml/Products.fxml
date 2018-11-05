@@ -10,9 +10,9 @@
     <children>
         <TableView fx:id="tableView" tableMenuButtonVisible="true">
             <columns>
-                <TableColumn fx:id="nameColumn" minWidth="-1.0" prefWidth="-1.0" text="Nazwa" />
-                <TableColumn fx:id="measureColumn" minWidth="-1.0" prefWidth="-1.0" text="J. m." />
-                <TableColumn fx:id="priceColumn" minWidth="-1.0" prefWidth="-1.0" text=" Cena netto " />
+                <TableColumn fx:id="nameClm" minWidth="-1.0" prefWidth="-1.0" text="Nazwa" />
+                <TableColumn fx:id="measureClm" minWidth="-1.0" prefWidth="-1.0" text="J. m." />
+                <TableColumn fx:id="priceClm" minWidth="-1.0" prefWidth="-1.0" text=" Cena netto " />
                 <TableColumn fx:id="taxColumn" prefWidth="-1.0" text="Stawka VAT (%)" />
             </columns>
             <VBox.margin>

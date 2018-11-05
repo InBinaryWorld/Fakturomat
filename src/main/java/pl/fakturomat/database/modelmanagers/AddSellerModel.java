@@ -1,19 +1,23 @@
-package pl.fakturomat.dataBase.modelManagers;
+package pl.fakturomat.database.modelmanagers;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import pl.fakturomat.dataBase.dao.SellerDao;
-import pl.fakturomat.dataBase.models.Seller;
-import pl.fakturomat.dataBase.modelsFx.SellerFx;
+import pl.fakturomat.database.dao.SellerDao;
+import pl.fakturomat.database.models.Seller;
+import pl.fakturomat.database.modelsfx.SellerFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.converters.SellerConverter;
 
 public class AddSellerModel {
-  private ObjectProperty<pl.fakturomat.dataBase.modelsFx.SellerFx> SellerFx = new SimpleObjectProperty<>(new SellerFx());
+  private ObjectProperty<SellerFx> sellerFx = new SimpleObjectProperty<>(new SellerFx());
 
   public AddSellerModel() {
   }
 
+  /**
+   * Save.
+   * @throws ApplicationException Error.
+   */
   public void saveSellerInDataBase() throws ApplicationException {
     SellerDao sellerDao = new SellerDao();
     Seller seller = SellerConverter.convertToSeller(getSellerFx());
@@ -21,14 +25,14 @@ public class AddSellerModel {
   }
 
   public SellerFx getSellerFx() {
-    return SellerFx.get();
+    return sellerFx.get();
   }
 
   public ObjectProperty<SellerFx> sellerFxProperty() {
-    return SellerFx;
+    return sellerFx;
   }
 
   public void setSellerFx(SellerFx sellerFx) {
-    this.SellerFx.set(sellerFx);
+    this.sellerFx.set(sellerFx);
   }
 }

@@ -1,13 +1,13 @@
-package pl.fakturomat.dataBase.models;
+package pl.fakturomat.database.models;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "SELLER")
-public class Seller implements BaseModel {
+@DatabaseTable(tableName = "CLIENT")
+public class Client implements BaseModel {
 
-  @DatabaseField(columnName = "SELLER_ID", generatedId = true, canBeNull = false)
-  private int sellerID;
+  @DatabaseField(columnName = "CLIENT_ID", generatedId = true, canBeNull = false)
+  private int clientId;
 
   @DatabaseField(columnName = "NAME", unique = true, canBeNull = false)
   private String name;
@@ -27,7 +27,7 @@ public class Seller implements BaseModel {
   @DatabaseField(columnName = "TELEPHONE_NR")
   private String phone;
 
-  public Seller() {
+  public Client() {
   }
 
   public String getPhone() {
@@ -38,12 +38,12 @@ public class Seller implements BaseModel {
     this.phone = phone;
   }
 
-  public int getSellerID() {
-    return sellerID;
+  public int getClientId() {
+    return clientId;
   }
 
-  public void setSellerID(int sellerID) {
-    this.sellerID = sellerID;
+  public void setClientId(int clientId) {
+    this.clientId = clientId;
   }
 
   public String getName() {
@@ -86,4 +86,3 @@ public class Seller implements BaseModel {
     this.address = address;
   }
 }
-

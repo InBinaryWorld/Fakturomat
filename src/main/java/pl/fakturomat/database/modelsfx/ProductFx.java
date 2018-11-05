@@ -1,6 +1,11 @@
-package pl.fakturomat.dataBase.modelsFx;
+package pl.fakturomat.database.modelsfx;
 
-import javafx.beans.property.*;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class ProductFx {
   private IntegerProperty productId = new SimpleIntegerProperty();
@@ -14,10 +19,6 @@ public class ProductFx {
 
   public int getProductId() {
     return productId.get();
-  }
-
-  public IntegerProperty productIdProperty() {
-    return productId;
   }
 
   public void setProductId(int productId) {

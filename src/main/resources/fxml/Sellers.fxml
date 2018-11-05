@@ -10,11 +10,11 @@
    <children>
       <TableView fx:id="tableView" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn fx:id="nameColumn" minWidth="-1.0" prefWidth="-1.0" text="Nazwa" />
-          <TableColumn fx:id="nipColumn" minWidth="-1.0" prefWidth="-1.0" text="NIP" />
-            <TableColumn fx:id="postCodeColumn" minWidth="-1.0" prefWidth="-1.0" text="Kod pocztowy" />
-            <TableColumn fx:id="cityColumn" prefWidth="-1.0" text="Miejscowość" />
-            <TableColumn fx:id="addressColumn" prefWidth="-1.0" text="Ul. i numer" />
+          <TableColumn fx:id="nameClm" minWidth="-1.0" prefWidth="-1.0" text="Nazwa" />
+          <TableColumn fx:id="nipClm" minWidth="-1.0" prefWidth="-1.0" text="NIP" />
+            <TableColumn fx:id="postCodeClm" minWidth="-1.0" prefWidth="-1.0" text="Kod pocztowy" />
+            <TableColumn fx:id="cityClm" prefWidth="-1.0" text="Miejscowość" />
+            <TableColumn fx:id="addressClm" prefWidth="-1.0" text="Ul. i numer" />
             <TableColumn fx:id="phoneColumn" prefWidth="-1.0" text="Nr telefonu" />
         </columns>
          <VBox.margin>

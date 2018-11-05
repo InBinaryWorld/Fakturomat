@@ -5,9 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import pl.fakturomat.dataBase.modelManagers.ShowInvoiceModel;
-import pl.fakturomat.dataBase.modelsFx.InvoiceFx;
-import pl.fakturomat.dataBase.modelsFx.OrderFx;
+import pl.fakturomat.database.modelmanagers.ShowInvoiceModel;
+import pl.fakturomat.database.modelsfx.InvoiceFx;
+import pl.fakturomat.database.modelsfx.OrderFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.DialogTools;
 
@@ -60,52 +60,57 @@ public class ShowInvoiceController {
   @FXML
   private Label totalAmountLabel;
 
-  ShowInvoiceModel showInvoiceModel = new ShowInvoiceModel();
+  private ShowInvoiceModel showInvMod = new ShowInvoiceModel();
 
   @FXML
   void okAction() {
-    Stage stage = (Stage)tableView.getScene().getWindow();
+    Stage stage = (Stage) tableView.getScene().getWindow();
     stage.close();
   }
 
+  /**
+   * Initialize.
+   *
+   * @param invoiceFx IncoiceFx object.
+   */
   public void passInvoiceFx(InvoiceFx invoiceFx) {
     try {
-      showInvoiceModel.init(invoiceFx);
-    } catch (ApplicationException | SQLException e) {
-      DialogTools.errorDialog(e.getMessage());
+      showInvMod.init(invoiceFx);
+    } catch (ApplicationException | SQLException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
     initBindings();
     initTableView();
   }
 
   private void initTableView() {
-    tableView.setItems(showInvoiceModel.getOrderFxList());
+    tableView.setItems(showInvMod.getOrderFxList());
     nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
     amountColumn.setCellValueFactory(cellData -> cellData.getValue().amountProperty().asObject());
     measureColumn.setCellValueFactory(cellData -> cellData.getValue().measureProperty());
     priceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
-    quantityColumn.setCellValueFactory(cellData -> cellData.getValue().quantityProperty().asObject());
+    quantityColumn.setCellValueFactory(cd -> cd.getValue().quantityProperty().asObject());
     taxColumn.setCellValueFactory(cellData -> cellData.getValue().taxProperty().asObject());
   }
 
   private void initBindings() {
-    dateLabel.setText(showInvoiceModel.getInvoiceFx().getDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
-    invoiceIdLabel.setText(showInvoiceModel.getInvoiceFx().getInvoiceId()+"");
-    totalAmountLabel.setText(showInvoiceModel.getTotalAmount()+"");
+    dateLabel.setText(showInvMod.getInvoiceFx().getDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
+    invoiceIdLabel.setText(showInvMod.getInvoiceFx().getInvoiceId() + "");
+    totalAmountLabel.setText(showInvMod.getTotalAmount() + "");
 
-    sellerNameLabel.setText(showInvoiceModel.getInvoiceFx().getSellerFx().getName());
-    sellerNipLabel.setText(showInvoiceModel.getInvoiceFx().getSellerFx().getNip());
-    sellerPostCodeLabel.setText(showInvoiceModel.getInvoiceFx().getSellerFx().getPostCode());
-    sellerCityLabel.setText(showInvoiceModel.getInvoiceFx().getSellerFx().getCity());
-    sellerAddressLabel.setText(showInvoiceModel.getInvoiceFx().getSellerFx().getAddress());
-    sellerPhoneLabel.setText(showInvoiceModel.getInvoiceFx().getSellerFx().getPhone());
+    sellerNameLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getName());
+    sellerNipLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getNip());
+    sellerPostCodeLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getPostCode());
+    sellerCityLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getCity());
+    sellerAddressLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getAddress());
+    sellerPhoneLabel.setText(showInvMod.getInvoiceFx().getSellerFx().getPhone());
 
-    clientNameLabel.setText(showInvoiceModel.getInvoiceFx().getClientFx().getName());
-    clientNipLabel.setText(showInvoiceModel.getInvoiceFx().getClientFx().getNip());
-    clientPostCodeLabel.setText(showInvoiceModel.getInvoiceFx().getClientFx().getPostCode());
-    clientCityLabel.setText(showInvoiceModel.getInvoiceFx().getClientFx().getCity());
-    clientAddressLabel.setText(showInvoiceModel.getInvoiceFx().getClientFx().getAddress());
-    clientPhoneLabel.setText(showInvoiceModel.getInvoiceFx().getClientFx().getPhone());
+    clientNameLabel.setText(showInvMod.getInvoiceFx().getClientFx().getName());
+    clientNipLabel.setText(showInvMod.getInvoiceFx().getClientFx().getNip());
+    clientPostCodeLabel.setText(showInvMod.getInvoiceFx().getClientFx().getPostCode());
+    clientCityLabel.setText(showInvMod.getInvoiceFx().getClientFx().getCity());
+    clientAddressLabel.setText(showInvMod.getInvoiceFx().getClientFx().getAddress());
+    clientPhoneLabel.setText(showInvMod.getInvoiceFx().getClientFx().getPhone());
 
 
   }

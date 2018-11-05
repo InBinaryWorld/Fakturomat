@@ -1,12 +1,17 @@
 package pl.fakturomat.tools.converters;
 
-import pl.fakturomat.dataBase.models.Seller;
-import pl.fakturomat.dataBase.modelsFx.SellerFx;
+import pl.fakturomat.database.models.Seller;
+import pl.fakturomat.database.modelsfx.SellerFx;
 
 public abstract class SellerConverter {
-  public static SellerFx convertToSellerFx(Seller seller){
+  /**
+   * Converter.
+   * @param seller Seller.
+   * @return SellerFx.
+   */
+  public static SellerFx convertToSellerFx(Seller seller) {
     SellerFx sellerFx = new SellerFx();
-    sellerFx.setSellerId(seller.getSellerID());
+    sellerFx.setSellerId(seller.getSellerId());
     sellerFx.setName(seller.getName());
     sellerFx.setNip(seller.getNip());
     sellerFx.setPostCode(seller.getPostCode());
@@ -16,9 +21,14 @@ public abstract class SellerConverter {
     return sellerFx;
   }
 
-  public static Seller convertToSeller(SellerFx sellerFx){
+  /**
+   * Converter.
+   * @param sellerFx SellerFx.
+   * @return Seller.
+   */
+  public static Seller convertToSeller(SellerFx sellerFx) {
     Seller seller = new Seller();
-    seller.setSellerID(sellerFx.getSellerId());
+    seller.setSellerId(sellerFx.getSellerId());
     seller.setName(sellerFx.getName());
     seller.setNip(sellerFx.getNip());
     seller.setPostCode(sellerFx.getPostCode());

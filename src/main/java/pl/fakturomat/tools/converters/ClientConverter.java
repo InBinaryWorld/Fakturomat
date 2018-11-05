@@ -1,12 +1,17 @@
 package pl.fakturomat.tools.converters;
 
-import pl.fakturomat.dataBase.models.Client;
-import pl.fakturomat.dataBase.modelsFx.ClientFx;
+import pl.fakturomat.database.models.Client;
+import pl.fakturomat.database.modelsfx.ClientFx;
 
 public abstract class ClientConverter {
-  public static ClientFx convertToClientFx(Client client){
+  /**
+   * Convener.
+   * @param client Client.
+   * @return ClientFx.
+   */
+  public static ClientFx convertToClientFx(Client client) {
     ClientFx clientFx = new ClientFx();
-    clientFx.setClientId(client.getClientID());
+    clientFx.setClientId(client.getClientId());
     clientFx.setName(client.getName());
     clientFx.setNip(client.getNip());
     clientFx.setPostCode(client.getPostCode());
@@ -16,9 +21,14 @@ public abstract class ClientConverter {
     return clientFx;
   }
 
-  public static Client convertToClient(ClientFx clientFx){
+  /**
+   * Convert.
+   * @param clientFx ClientFx.
+   * @return Client.
+   */
+  public static Client convertToClient(ClientFx clientFx) {
     Client client = new Client();
-    client.setClientID(clientFx.getClientId());
+    client.setClientId(clientFx.getClientId());
     client.setName(clientFx.getName());
     client.setNip(clientFx.getNip());
     client.setPostCode(clientFx.getPostCode());

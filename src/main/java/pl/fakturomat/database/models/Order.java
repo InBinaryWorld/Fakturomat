@@ -1,4 +1,4 @@
-package pl.fakturomat.dataBase.models;
+package pl.fakturomat.database.models;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -6,10 +6,11 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "ORDER")
 public class Order implements BaseModel {
 
-  @DatabaseField(columnName = "ORDER_ID",generatedId = true ,unique = true, canBeNull = false)
+  @DatabaseField(columnName = "ORDER_ID", generatedId = true, unique = true, canBeNull = false)
   private int id;
 
-  @DatabaseField(columnName = "INVOICE_ID", foreign = true ,foreignAutoRefresh = true , canBeNull = false)
+  @DatabaseField(columnName = "INVOICE_ID", foreign = true,
+          foreignAutoRefresh = true, canBeNull = false)
   private Invoice invoice;
 
   @DatabaseField(columnName = "NAME", canBeNull = false)
@@ -29,6 +30,14 @@ public class Order implements BaseModel {
 
   @DatabaseField(columnName = "AMOUNT", canBeNull = false)
   private double amount;
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 
   public double getAmount() {
     return amount;

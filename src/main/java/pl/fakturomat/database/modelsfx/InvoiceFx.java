@@ -1,4 +1,4 @@
-package pl.fakturomat.dataBase.modelsFx;
+package pl.fakturomat.database.modelsfx;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -67,6 +67,6 @@ public class InvoiceFx {
 
   @Override
   public String toString() {
-    return getInvoiceId()+ " - " + getDate();
+    return getInvoiceId() + " - " + getDate();
   }
 }

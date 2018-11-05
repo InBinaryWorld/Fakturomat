@@ -1,6 +1,6 @@
-package pl.fakturomat.dataBase.dao;
+package pl.fakturomat.database.dao;
 
-import pl.fakturomat.dataBase.models.Client;
+import pl.fakturomat.database.models.Client;
 
 public class ClientDao extends CommonDao<Client> {
   public ClientDao() {

@@ -1,13 +1,13 @@
-package pl.fakturomat.dataBase.models;
+package pl.fakturomat.database.models;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName ="CLIENT")
-public class Client implements BaseModel {
+@DatabaseTable(tableName = "SELLER")
+public class Seller implements BaseModel {
 
-  @DatabaseField(columnName = "CLIENT_ID", generatedId = true, canBeNull = false)
-  private int clientID;
+  @DatabaseField(columnName = "SELLER_ID", generatedId = true, canBeNull = false)
+  private int sellerId;
 
   @DatabaseField(columnName = "NAME", unique = true, canBeNull = false)
   private String name;
@@ -16,18 +16,18 @@ public class Client implements BaseModel {
   private String nip;
 
   @DatabaseField(columnName = "POST_CODE", canBeNull = false)
-  private  String postCode;
+  private String postCode;
 
   @DatabaseField(columnName = "CITY", canBeNull = false)
-  private  String city;
+  private String city;
 
   @DatabaseField(columnName = "ADDRESS", canBeNull = false)
-  private  String address;
+  private String address;
 
   @DatabaseField(columnName = "TELEPHONE_NR")
   private String phone;
 
-  public Client() {
+  public Seller() {
   }
 
   public String getPhone() {
@@ -38,12 +38,12 @@ public class Client implements BaseModel {
     this.phone = phone;
   }
 
-  public int getClientID() {
-    return clientID;
+  public int getSellerId() {
+    return sellerId;
   }
 
-  public void setClientID(int clientID) {
-    this.clientID = clientID;
+  public void setSellerId(int sellerId) {
+    this.sellerId = sellerId;
   }
 
   public String getName() {
@@ -86,3 +86,4 @@ public class Client implements BaseModel {
     this.address = address;
   }
 }
+

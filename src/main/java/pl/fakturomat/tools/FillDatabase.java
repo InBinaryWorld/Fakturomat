@@ -1,13 +1,24 @@
 package pl.fakturomat.tools;
 
-import pl.fakturomat.dataBase.DbManager;
-import pl.fakturomat.dataBase.dao.*;
-import pl.fakturomat.dataBase.models.*;
-import pl.fakturomat.tools.converters.DateConventers;
+import pl.fakturomat.database.DbManager;
+import pl.fakturomat.database.dao.ClientDao;
+import pl.fakturomat.database.dao.InvoiceDao;
+import pl.fakturomat.database.dao.OrderDao;
+import pl.fakturomat.database.dao.ProductDao;
+import pl.fakturomat.database.dao.SellerDao;
+import pl.fakturomat.database.models.Client;
+import pl.fakturomat.database.models.Invoice;
+import pl.fakturomat.database.models.Order;
+import pl.fakturomat.database.models.Product;
+import pl.fakturomat.database.models.Seller;
+import pl.fakturomat.tools.converters.DateConverters;
 
 import java.time.LocalDate;
 
 public abstract class FillDatabase {
+  /**
+   * Fill.
+   */
   public static void fillDatabase() {
     Client client1 = new Client();
     client1.setPhone("695245233");
@@ -57,7 +68,7 @@ public abstract class FillDatabase {
     invoice1.setId(1);
     invoice1.setClient(client1);
     invoice1.setSeller(seller1);
-    invoice1.setData(DateConventers.convertToDate(LocalDate.now()));
+    invoice1.setData(DateConverters.convertToDate(LocalDate.now()));
 
     Order order1 = new Order();
     order1.setQuantity(2);
@@ -67,44 +78,43 @@ public abstract class FillDatabase {
     order1.setTax(product1.getTax());
     order1.setInvoice(invoice1);
 
-    ClientDao clientDao =new ClientDao();
+    ClientDao clientDao = new ClientDao();
     try {
       clientDao.create(client1);
       clientDao.create(client2);
-    } catch (ApplicationException e) {
-      e.printStackTrace();
+    } catch (ApplicationException ee1) {
+      ee1.printStackTrace();
     }
 
     SellerDao sellerDao = new SellerDao();
     try {
       sellerDao.create(seller1);
       sellerDao.create(seller2);
-    } catch (ApplicationException e) {
-      e.printStackTrace();
+    } catch (ApplicationException ee1) {
+      ee1.printStackTrace();
     }
 
     ProductDao productDao = new ProductDao();
     try {
       productDao.create(product1);
       productDao.create(product2);
-    } catch (ApplicationException e) {
-      e.printStackTrace();
+    } catch (ApplicationException ee1) {
+      ee1.printStackTrace();
     }
 
     InvoiceDao invoiceDao = new InvoiceDao();
     try {
       invoiceDao.create(invoice1);
-    } catch (ApplicationException e) {
-      e.printStackTrace();
+    } catch (ApplicationException ee1) {
+      ee1.printStackTrace();
     }
-
 
 
     OrderDao orderDao = new OrderDao();
     try {
       orderDao.create(order1);
-    } catch (ApplicationException e) {
-      e.printStackTrace();
+    } catch (ApplicationException ee1) {
+      ee1.printStackTrace();
     }
 
     DbManager.closeConnectionSource();

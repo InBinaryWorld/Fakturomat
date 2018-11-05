@@ -30,7 +30,7 @@
                                 </RadioMenuItem>
                                 <RadioMenuItem mnemonicParsing="false" onAction="#setModena" text="Modena" toggleGroup="$styleGrup" />
                                 <SeparatorMenuItem mnemonicParsing="false" />
-                                <CheckMenuItem mnemonicParsing="false" onAction="#AlwaysOnTopAction" text="Zawsze na wierzchu" />
+                                <CheckMenuItem fx:id="alwaysOnTopBtn" mnemonicParsing="false" onAction="#alwaysOnTopAction" text="Zawsze na wierzchu" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Pomoc">

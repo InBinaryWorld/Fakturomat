@@ -3,8 +3,8 @@ package pl.fakturomat.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import pl.fakturomat.dataBase.modelsFx.ClientFx;
-import pl.fakturomat.dataBase.modelManagers.ClientModel;
+import pl.fakturomat.database.modelmanagers.ClientModel;
+import pl.fakturomat.database.modelsfx.ClientFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.DialogTools;
 
@@ -14,42 +14,45 @@ public class ClientsController {
   private TableView<ClientFx> tableView;
 
   @FXML
-  private TableColumn<ClientFx, String> nameColumn;
+  private TableColumn<ClientFx, String> nameClm;
 
   @FXML
-  private TableColumn<ClientFx, String> nipColumn;
+  private TableColumn<ClientFx, String> nipClm;
 
   @FXML
-  private TableColumn<ClientFx, String> postCodeColumn;
+  private TableColumn<ClientFx, String> postCodeClm;
 
   @FXML
-  private TableColumn<ClientFx, String> cityColumn;
+  private TableColumn<ClientFx, String> cityClm;
 
   @FXML
-  private TableColumn<ClientFx, String> addressColumn;
+  private TableColumn<ClientFx, String> addressClm;
 
   @FXML
-  private TableColumn<ClientFx, String> phoneColumn;
+  private TableColumn<ClientFx, String> phoneClm;
 
   private ClientModel clientModel = new ClientModel();
 
-  public void initialize(){
+  /**
+   * Initialize.
+   */
+  public void initialize() {
     try {
       clientModel.init();
-    } catch (ApplicationException e) {
-      DialogTools.errorDialog(e.getMessage());
+    } catch (ApplicationException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
     initTableView();
   }
 
   private void initTableView() {
     tableView.setItems(ClientModel.getClientFxList());
-    nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-    nipColumn.setCellValueFactory(cellData -> cellData.getValue().nipProperty());
-    postCodeColumn.setCellValueFactory(cellData -> cellData.getValue().postCodeProperty());
-    cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
-    addressColumn.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
-    phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
+    nameClm.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+    nipClm.setCellValueFactory(cellData -> cellData.getValue().nipProperty());
+    postCodeClm.setCellValueFactory(cellData -> cellData.getValue().postCodeProperty());
+    cityClm.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
+    addressClm.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
+    phoneClm.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
 
   }
 
@@ -58,8 +61,8 @@ public class ClientsController {
     DialogTools.addClientDialog();
     try {
       clientModel.init();
-    } catch (ApplicationException e) {
-      DialogTools.errorDialog(e.getMessage());
+    } catch (ApplicationException ee1) {
+      DialogTools.errorDialog(ee1.getMessage());
     }
   }
 

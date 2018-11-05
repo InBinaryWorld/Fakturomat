@@ -47,13 +47,13 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addAction" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="quantityTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addAction" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="quantityTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </TextField>
-            <ComboBox fx:id="productComboBox" prefHeight="26.0" prefWidth="158.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="productComBox" prefHeight="26.0" prefWidth="158.0" GridPane.columnIndex="1" />
             </children>
             <VBox.margin>
                 <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />

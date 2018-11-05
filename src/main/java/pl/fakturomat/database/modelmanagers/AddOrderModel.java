@@ -1,13 +1,13 @@
-package pl.fakturomat.dataBase.modelManagers;
+package pl.fakturomat.database.modelmanagers;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pl.fakturomat.dataBase.dao.ProductDao;
-import pl.fakturomat.dataBase.models.Product;
-import pl.fakturomat.dataBase.modelsFx.OrderFx;
-import pl.fakturomat.dataBase.modelsFx.ProductFx;
+import pl.fakturomat.database.dao.ProductDao;
+import pl.fakturomat.database.models.Product;
+import pl.fakturomat.database.modelsfx.OrderFx;
+import pl.fakturomat.database.modelsfx.ProductFx;
 import pl.fakturomat.tools.ApplicationException;
 import pl.fakturomat.tools.converters.ProductConverter;
 
@@ -20,6 +20,10 @@ public class AddOrderModel {
   public AddOrderModel() {
   }
 
+  /**
+   * Init.
+   * @throws ApplicationException Error.
+    */
   public void init() throws ApplicationException {
     ProductDao productDao = new ProductDao();
     List<Product> products = productDao.queryForAll();

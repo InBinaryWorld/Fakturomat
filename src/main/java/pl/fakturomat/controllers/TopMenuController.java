@@ -12,12 +12,12 @@ public class TopMenuController {
   private MainController mainController;
 
   @FXML
-  void NewInvoiceAction() {
+  void newInvoiceAction() {
     mainController.setCenter(NEW_INVOICE_FXML);
   }
 
   @FXML
-  void ShowInvoiceAction() {
+  void showInvoiceAction() {
     mainController.setCenter(SHOW_INVOICE_FXML);
   }
 
@@ -36,7 +36,7 @@ public class TopMenuController {
     mainController.setCenter(PRODUCTS_FXML);
   }
 
-  public void setMainController(MainController mainController) {
+  void setMainController(MainController mainController) {
     this.mainController = mainController;
   }
 
