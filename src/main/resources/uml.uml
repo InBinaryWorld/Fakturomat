@@ -3,59 +3,60 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="515.5" y="0.0">pl.fakturomat.database.models.BaseModel</node>
-    <node x="168.0" y="686.0">pl.fakturomat.tools.FillDatabase</node>
+    <node x="512.25" y="0.0">pl.fakturomat.database.models.BaseModel</node>
     <node x="593.0" y="316.0">pl.fakturomat.controllers.TopMenuController</node>
-    <node x="360.0" y="538.0">pl.fakturomat.controllers.ClientsController</node>
+    <node x="486.0" y="686.0">pl.fakturomat.tools.FillDatabase</node>
+    <node x="180.0" y="538.0">pl.fakturomat.controllers.ClientsController</node>
     <node x="0.0" y="242.0">pl.fakturomat.controllers.ShowInvoiceController</node>
-    <node x="0.0" y="316.0">pl.fakturomat.controllers.AddOrderController</node>
+    <node x="198.0" y="316.0">pl.fakturomat.controllers.AddOrderController</node>
     <node x="0.0" y="464.0">pl.fakturomat.controllers.InvoicesController</node>
-    <node x="745.0" y="760.0">pl.fakturomat.tools.Listeners</node>
-    <node x="326.0" y="686.0">pl.fakturomat.tools.ButtonTypes</node>
+    <node x="0.0" y="834.0">pl.fakturomat.tools.Listeners</node>
     <node x="384.0" y="390.0">pl.fakturomat.database.modelmanagers.AddProductModel</node>
-    <node x="313.0" y="760.0">pl.fakturomat.tools.FxmlTools</node>
+    <node x="328.0" y="686.0">pl.fakturomat.tools.ButtonTypes</node>
     <node x="193.0" y="390.0">pl.fakturomat.controllers.ProductsController</node>
-    <node x="0.0" y="834.0">pl.fakturomat.database.modelsfx.OrderFx</node>
-    <node x="180.0" y="538.0">pl.fakturomat.controllers.SellersController</node>
+    <node x="470.0" y="760.0">pl.fakturomat.tools.FxmlTools</node>
+    <node x="360.0" y="538.0">pl.fakturomat.controllers.SellersController</node>
+    <node x="272.0" y="834.0">pl.fakturomat.database.modelsfx.OrderFx</node>
     <node x="120.0" y="168.0">pl.fakturomat.database.dao.ProductDao</node>
-    <node x="241.50000000000003" y="89.0">pl.fakturomat.database.dao.CommonDao</node>
+    <node x="241.49999999999997" y="89.0">pl.fakturomat.database.dao.CommonDao</node>
     <node x="693.0" y="612.0">pl.fakturomat.database.modelmanagers.InvoicesModel</node>
-    <node x="380.5" y="89.0">pl.fakturomat.database.models.Client</node>
     <node x="0.0" y="390.0">pl.fakturomat.database.modelmanagers.ShowInvoiceModel</node>
-    <node x="134.0" y="834.0">pl.fakturomat.database.modelsfx.ClientFx</node>
+    <node x="575.5" y="89.0">pl.fakturomat.database.models.Client</node>
+    <node x="138.0" y="834.0">pl.fakturomat.database.modelsfx.ClientFx</node>
     <node x="491.0" y="168.0">pl.fakturomat.database.dao.InvoiceDao</node>
-    <node x="459.0" y="760.0">pl.fakturomat.database.modelsfx.ProductFx</node>
-    <node x="371.0" y="168.0">pl.fakturomat.database.dao.OrderDao</node>
-    <node x="478.50000000000006" y="89.0">pl.fakturomat.database.models.Order</node>
+    <node x="250.99999999999997" y="168.0">pl.fakturomat.database.dao.OrderDao</node>
+    <node x="616.0" y="760.0">pl.fakturomat.database.modelsfx.ProductFx</node>
     <node x="421.0" y="242.0">pl.fakturomat.controllers.NewInvoiceController</node>
+    <node x="380.5" y="89.0">pl.fakturomat.database.models.Order</node>
     <node x="0.0" y="612.0">pl.fakturomat.tools.converters.DateConverters</node>
-    <node x="684.5" y="89.0">pl.fakturomat.database.models.Seller</node>
     <node x="212.0" y="242.0">pl.fakturomat.controllers.AddProductController</node>
-    <node x="554.0" y="464.0">pl.fakturomat.database.modelmanagers.AddOrderModel</node>
+    <node x="478.5" y="89.0">pl.fakturomat.database.models.Seller</node>
+    <node x="0.0" y="538.0">pl.fakturomat.database.modelmanagers.AddOrderModel</node>
     <node x="188.0" y="464.0">pl.fakturomat.tools.converters.ProductConverter</node>
-    <node x="0.0" y="760.0">pl.fakturomat.tools.DialogTools</node>
-    <node x="641.0" y="686.0">pl.fakturomat.database.modelmanagers.ClientModel</node>
-    <node x="268.0" y="834.0">pl.fakturomat.database.modelsfx.SellerFx</node>
-    <node x="198.0" y="316.0">pl.fakturomat.controllers.AddClientController</node>
+    <node x="644.0" y="686.0">pl.fakturomat.tools.DialogTools</node>
+    <node x="0.0" y="760.0">pl.fakturomat.database.modelmanagers.ClientModel</node>
+    <node x="0.0" y="316.0">pl.fakturomat.controllers.AddClientController</node>
+    <node x="406.0" y="834.0">pl.fakturomat.database.modelsfx.SellerFx</node>
     <node x="373.0" y="464.0">pl.fakturomat.tools.converters.InvoiceConverter</node>
-    <node x="0.0" y="538.0">pl.fakturomat.database.modelmanagers.AddClientModel</node>
-    <node x="401.0" y="834.0">pl.fakturomat.Main</node>
+    <node x="554.0" y="464.0">pl.fakturomat.database.modelmanagers.AddClientModel</node>
+    <node x="539.0" y="834.0">pl.fakturomat.Main</node>
     <node x="719.0" y="538.0">pl.fakturomat.tools.converters.ClientConverter</node>
+    <node x="0.0" y="168.0">pl.fakturomat.database.dao.ClientDao</node>
     <node x="0.0" y="686.0">pl.fakturomat.database.modelmanagers.ProductModel</node>
-    <node x="251.00000000000003" y="168.0">pl.fakturomat.database.dao.ClientDao</node>
-    <node x="0.0" y="168.0">pl.fakturomat.database.dao.SellerDao</node>
+    <node x="371.0" y="168.0">pl.fakturomat.database.dao.SellerDao</node>
     <node x="540.0" y="538.0">pl.fakturomat.database.modelmanagers.AddSellerModel</node>
-    <node x="604.0" y="760.0">pl.fakturomat.database.modelsfx.InvoiceFx</node>
+    <node x="168.0" y="686.0">pl.fakturomat.tools.TestExample</node>
+    <node x="761.0" y="760.0">pl.fakturomat.database.modelsfx.InvoiceFx</node>
     <node x="348.0" y="612.0">pl.fakturomat.tools.converters.SellerConverter</node>
     <node x="396.0" y="316.0">pl.fakturomat.controllers.AddSellerController</node>
     <node x="521.0" y="612.0">pl.fakturomat.controllers.MainController</node>
     <node x="174.0" y="612.0">pl.fakturomat.tools.converters.OrderConverter</node>
-    <node x="576.5" y="89.0">pl.fakturomat.database.models.Product</node>
+    <node x="778.5" y="89.0">pl.fakturomat.database.models.Product</node>
     <node x="574.0" y="390.0">pl.fakturomat.database.modelmanagers.NewInvoiceModel</node>
-    <node x="484.0" y="686.0">pl.fakturomat.database.modelmanagers.SellerModel</node>
+    <node x="157.0" y="760.0">pl.fakturomat.database.modelmanagers.SellerModel</node>
     <node x="628.0" y="242.0">pl.fakturomat.tools.ApplicationException</node>
-    <node x="781.5" y="89.0">pl.fakturomat.database.models.Invoice</node>
-    <node x="157.0" y="760.0">pl.fakturomat.database.DbManager</node>
+    <node x="673.5" y="89.0">pl.fakturomat.database.models.Invoice</node>
+    <node x="314.0" y="760.0">pl.fakturomat.database.DbManager</node>
   </nodes>
   <notes />
   <edges>
@@ -67,37 +68,37 @@
     </edge>
     <edge source="pl.fakturomat.database.models.Product" target="pl.fakturomat.database.models.BaseModel">
       <point x="0.0" y="-14.5" />
-      <point x="620.5" y="69.0" />
-      <point x="577.9166666666667" y="69.0" />
-      <point x="8.916666666666742" y="14.5" />
+      <point x="822.5" y="49.0" />
+      <point x="610.3333333333333" y="49.0" />
+      <point x="44.58333333333326" y="14.5" />
     </edge>
     <edge source="pl.fakturomat.database.dao.SellerDao" target="pl.fakturomat.database.dao.CommonDao">
-      <point x="0.0" y="-14.5" />
-      <point x="50.0" y="138.0" />
-      <point x="253.40000000000012" y="138.0" />
-      <point x="-47.59999999999991" y="14.5" />
-    </edge>
-    <edge source="pl.fakturomat.database.models.Client" target="pl.fakturomat.database.models.BaseModel">
-      <point x="0.0" y="-14.5" />
-      <point x="419.5" y="59.0" />
-      <point x="542.25" y="59.0" />
-      <point x="-26.75" y="14.5" />
-    </edge>
-    <edge source="pl.fakturomat.database.dao.ClientDao" target="pl.fakturomat.database.dao.CommonDao">
-      <point x="0.0" y="-14.5" />
-      <point x="0.0" y="14.5" />
-    </edge>
-    <edge source="pl.fakturomat.database.dao.OrderDao" target="pl.fakturomat.database.dao.CommonDao">
       <point x="0.0" y="-14.5" />
       <point x="421.0" y="148.0" />
       <point x="324.79999999999995" y="148.0" />
       <point x="23.799999999999955" y="14.5" />
     </edge>
+    <edge source="pl.fakturomat.database.models.Client" target="pl.fakturomat.database.models.BaseModel">
+      <point x="0.0" y="-14.5" />
+      <point x="614.5" y="69.0" />
+      <point x="574.6666666666667" y="69.0" />
+      <point x="8.916666666666742" y="14.5" />
+    </edge>
+    <edge source="pl.fakturomat.database.dao.ClientDao" target="pl.fakturomat.database.dao.CommonDao">
+      <point x="0.0" y="-14.5" />
+      <point x="50.0" y="138.0" />
+      <point x="253.40000000000006" y="138.0" />
+      <point x="-47.59999999999991" y="14.5" />
+    </edge>
+    <edge source="pl.fakturomat.database.dao.OrderDao" target="pl.fakturomat.database.dao.CommonDao">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
     <edge source="pl.fakturomat.database.models.Order" target="pl.fakturomat.database.models.BaseModel">
       <point x="0.0" y="-14.5" />
-      <point x="517.5" y="69.0" />
-      <point x="560.0833333333333" y="69.0" />
-      <point x="-8.916666666666742" y="14.5" />
+      <point x="419.5" y="59.0" />
+      <point x="539.0" y="59.0" />
+      <point x="-26.75" y="14.5" />
     </edge>
     <edge source="pl.fakturomat.database.dao.ProductDao" target="pl.fakturomat.database.dao.CommonDao">
       <point x="0.0" y="-14.5" />
@@ -105,26 +106,26 @@
       <point x="277.20000000000005" y="148.0" />
       <point x="-23.799999999999955" y="14.5" />
     </edge>
-    <edge source="pl.fakturomat.database.models.Invoice" target="pl.fakturomat.database.models.BaseModel">
-      <point x="0.0" y="-14.5" />
-      <point x="824.0" y="49.0" />
-      <point x="613.5833333333333" y="49.0" />
-      <point x="44.58333333333326" y="14.5" />
-    </edge>
     <edge source="pl.fakturomat.database.dao.CommonDao" target="pl.fakturomat.database.models.BaseModel">
       <point x="0.0" y="-14.5" />
       <point x="301.0" y="49.0" />
-      <point x="524.4166666666667" y="49.0" />
+      <point x="521.1666666666667" y="49.0" />
       <point x="-44.58333333333326" y="14.5" />
+    </edge>
+    <edge source="pl.fakturomat.database.models.Invoice" target="pl.fakturomat.database.models.BaseModel">
+      <point x="0.0" y="-14.5" />
+      <point x="716.0" y="59.0" />
+      <point x="592.5" y="59.0" />
+      <point x="26.75" y="14.5" />
     </edge>
     <edge source="pl.fakturomat.database.models.Seller" target="pl.fakturomat.database.models.BaseModel">
       <point x="0.0" y="-14.5" />
-      <point x="723.0" y="59.0" />
-      <point x="595.75" y="59.0" />
-      <point x="26.75" y="14.5" />
+      <point x="517.0" y="69.0" />
+      <point x="556.8333333333333" y="69.0" />
+      <point x="-8.916666666666742" y="14.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7685076380728555" x="352.5" y="405.5" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="272.0" y="246.5" />
   <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>

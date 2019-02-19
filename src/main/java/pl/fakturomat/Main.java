@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pl.fakturomat.database.DbManager;
+import pl.fakturomat.tools.FillDatabase;
 import pl.fakturomat.tools.FxmlTools;
 import java.util.Objects;
 
@@ -21,5 +22,6 @@ public class Main extends Application {
     primaryStage.show();
 
     DbManager.initDatabase();
+    FillDatabase.fillDatabase();
   }
 }

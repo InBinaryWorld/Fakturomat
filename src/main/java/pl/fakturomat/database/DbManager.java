@@ -28,7 +28,6 @@ public class DbManager {
     dropTables();
     createIfNotExistTables();
     closeConnectionSource();
-    FillDatabase.fillDatabase();
   }
 
   /**
